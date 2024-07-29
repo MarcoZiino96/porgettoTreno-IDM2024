@@ -41,10 +41,8 @@ public LocalContainerEntityManagerFactoryBean  getEntityManager(){
 	 factory.setDataSource(getDataSource());  
 	 
 	 // imposta il dialogo tra JPA e hibernate
-	 factory.setJpaVendorAdapter(getJpaVendorAdapter()); // imposta il dialogo tra JPA e hibernate
-	 
-	 // impostare il luogo dove si trovano i bean (entità del DB)
-	 //factory.setPackagesToScan(this.getClass().getPackage().getName()); 
+	 factory.setJpaVendorAdapter(getJpaVendorAdapter()); 
+	
 	 factory.setPackagesToScan("com.idm.entity"); 
 	 return factory; 
 } 	
@@ -52,10 +50,10 @@ public LocalContainerEntityManagerFactoryBean  getEntityManager(){
 
 private HibernateJpaVendorAdapter getJpaVendorAdapter() {
 	HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
-	adapter.setDatabase(Database.MYSQL);   // obbligatorio: serve per tradurre le query nel particolare Dialetto
+	adapter.setDatabase(Database.MYSQL);   
 	
-	adapter.setGenerateDdl(true);          //facoltativo, attiva il DDL cio� hibernate creaer� le strutture nel DB se non sono gi� essitenti
-	adapter.setShowSql(true);              // mostra l'SQL, comodo per i corsi e per il debug ma in produzione solitamente � a false 
+	adapter.setGenerateDdl(true);         
+	adapter.setShowSql(true);               
 	return adapter;
 }	
 
