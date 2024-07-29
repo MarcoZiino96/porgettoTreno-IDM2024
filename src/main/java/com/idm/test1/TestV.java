@@ -37,18 +37,18 @@ public class TestV {
 		VagonePasseggeri vp = dao.find(id);
 		return vp;
 	}
-	
-	public static VagonePasseggeri updateVagonePasseggeri(VagonePasseggeri vp, int id) {
-		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		VagonePasseggeriDao dao = factory.getBean("vagonePasseggeri", VagonePasseggeriDao.class);
-		VagonePasseggeri vpOld = findVagonePasseggeri(id);
-		vpOld.setLunghezza(vp.getLunghezza());
-		vpOld.setNumeroPosti(vp.getNumeroPosti());
-		vpOld.setPeso(vp.getPeso());
-		vpOld.setPrezzo(vp.getPrezzo());
-		dao.update(vpOld);
-		return vpOld;
-	}
+//	
+//	public static VagonePasseggeri updateVagonePasseggeri(VagonePasseggeri vp, int id) {
+//		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
+//		VagonePasseggeriDao dao = factory.getBean("vagonePasseggeri", VagonePasseggeriDao.class);
+//		VagonePasseggeri vpOld = findVagonePasseggeri(id);
+//		vpOld.setLunghezza(vp.getLunghezza());
+//		vpOld.setNumeroPosti(vp.getNumeroPosti());
+//		vpOld.setPeso(vp.getPeso());
+//		vpOld.setPrezzo(vp.getPrezzo());
+//		dao.update(vpOld);
+//		return vpOld;
+//	}
 	
 	
 
