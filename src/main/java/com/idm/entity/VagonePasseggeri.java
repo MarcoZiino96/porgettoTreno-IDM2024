@@ -18,6 +18,12 @@ public class VagonePasseggeri extends AbstractVagone {
 		super();
 	}
 
+	@Override
+	public String toString() {
+		return "VagonePasseggeri  [numeroPosti=" + numeroPosti + "]"+
+	             super.toString();
+	}
+
 	public int getNumeroPosti() {
 		return numeroPosti;
 	}
@@ -25,6 +31,7 @@ public class VagonePasseggeri extends AbstractVagone {
 	public void setNumeroPosti(int numeroPosti) {
 		this.numeroPosti = numeroPosti;
 	}
+	
 	
 
 }

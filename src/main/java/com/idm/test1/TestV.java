@@ -1,18 +1,31 @@
 package com.idm.test1;
 
-import java.beans.Beans;
+
+import java.util.List;
+
+import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.BeanFactory;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.idm.config.Beans;
 import com.idm.dao.VagonePasseggeriDao;
+import com.idm.dao.impl.VagonePasseggeriImpl;
 import com.idm.entity.VagonePasseggeri;
 public class TestV {
 
-	; 
+
 
 	public static void main(String[] args) {
 
-
-
+//		creaVagonePasseggeri(10, 50000, 250000, 78);
+		//creaVagonePasseggeri(10, 50000, 250000, 55);
+		
+		//findVagonePasseggeri(1);
+		
+		//updateVagonePasseggeri(vp1, 1);
+		
+		//deleteVagonePasseggeri(3);
 	}
 
 
@@ -21,10 +34,10 @@ public class TestV {
 		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
 		VagonePasseggeriDao dao = factory.getBean("vagonePasseggeri", VagonePasseggeriDao.class);
 		VagonePasseggeri vp = new VagonePasseggeri();
-		vp.setNumeroPosti(5);
-		vp.setPrezzo(20000);
-		vp.setLunghezza(10);
-		vp.setPeso(25000);
+		vp.setNumeroPosti(numeroPosti);
+		vp.setPrezzo(prezzo);
+		vp.setLunghezza(lunghezza);
+		vp.setPeso(peso);
 		dao.add(vp);
 
 		return vp;
@@ -35,6 +48,7 @@ public class TestV {
 		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
 		VagonePasseggeriDao dao = factory.getBean("vagonePasseggeri", VagonePasseggeriDao.class);
 		VagonePasseggeri vp = dao.find(id);
+		System.out.println(vp);
 		return vp;
 	}
 	
@@ -50,6 +64,9 @@ public class TestV {
 		return vpOld;
 	}
 	
-	
-
+	public static void deleteVagonePasseggeri(int id) {
+		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
+		VagonePasseggeriDao dao = factory.getBean("vagonePasseggeri", VagonePasseggeriDao.class);
+		dao.delete(id);	
+	}
 }
