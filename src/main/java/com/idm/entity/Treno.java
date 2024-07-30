@@ -18,8 +18,7 @@ public class Treno implements Bean {
 	@ManyToOne
 	@JoinColumn(name = "utente_fk")
 	private Utente utente;
-	
-	private Double prezzo;
+	private int prezzo;
 	private Double peso;
 	private Double lunghezza;
 
