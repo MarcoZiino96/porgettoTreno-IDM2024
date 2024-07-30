@@ -1,4 +1,4 @@
-package service;
+package com.idm.service;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
