@@ -15,11 +15,11 @@ public abstract class AbstractVagone implements Locomotiva, Cargo, Ristorante, P
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
+	@Column
 	private float lunghezza;
-
+	@Column
 	private float peso;
-
+	@Column
 	private double prezzo;
 	
 	@ManyToOne

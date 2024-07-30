@@ -13,8 +13,13 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.idm.dao.VagoneCargoDao;
 import com.idm.dao.VagonePasseggeriDao;
-import com.idm.dao.impl.VagonePasseggeriImpl;
+import com.idm.dao.VagoneRistoranteDao;
+import com.idm.dao.impl.VagoneCargoDaoImpl;
+import com.idm.dao.impl.VagonePasseggeriDaoImpl;
+import com.idm.dao.impl.VagoneRistoranteDaoImpl;
+
 
 @Configuration
 @ComponentScan(basePackages = "com.idm")
@@ -28,8 +33,8 @@ public class Beans {
 		DriverManagerDataSource ds = new DriverManagerDataSource(); 
 		ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		ds.setUsername("root");
-		ds.setPassword("mysqlcorsoidm");
-		ds.setUrl("jdbc:mysql://localhost:3306/gestione_treno");
+		ds.setPassword("corsocorso");
+		ds.setUrl("jdbc:mysql://localhost:3306/gestione_treni");
 		return ds; 
 	} 
 
@@ -70,8 +75,20 @@ public PlatformTransactionManager getTransactionManager(){
 ///**** sezione DAO ****/
 
 @Bean(name="vagonePasseggeri") 
-public VagonePasseggeriDao getCategoriaDao (){
-	VagonePasseggeriDao dao = new VagonePasseggeriImpl();
+public VagonePasseggeriDao getVagonePasseggeriDao (){
+	VagonePasseggeriDao dao = new VagonePasseggeriDaoImpl();
+	   return dao; 
+}
+
+@Bean(name="VagoneCargoDao") 
+public VagoneCargoDao getVagoneCargoDao (){
+	VagoneCargoDao dao = new VagoneCargoDaoImpl();
+	   return dao; 
+}
+
+@Bean(name="VagoneRistoranteDao") 
+public VagoneRistoranteDao getVagoneRistoranteDao (){
+	VagoneRistoranteDao dao = new VagoneRistoranteDaoImpl();
 	   return dao; 
 }
 

@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.idm.dao.VagonePasseggeriDao;
 import com.idm.entity.VagonePasseggeri;
 
-public class VagonePasseggeriImpl extends DaoImpl implements VagonePasseggeriDao {
+public class VagonePasseggeriDaoImpl extends DaoImpl implements VagonePasseggeriDao {
 
 	@PersistenceContext
 	private EntityManager manager;

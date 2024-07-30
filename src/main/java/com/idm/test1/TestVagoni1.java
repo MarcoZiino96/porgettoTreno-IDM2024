@@ -5,7 +5,7 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import com.idm.dao.VagonePasseggeriDao;
 import com.idm.entity.VagonePasseggeri;
-public class TestV {
+public class TestVagoni1 {
 
 	; 
 
