@@ -18,7 +18,7 @@ public class TestV {
 
 	public static void main(String[] args) {
 
-//		creaVagonePasseggeri(10, 50000, 250000, 78);
+		//creaVagonePasseggeri(10, 50000, 250000, 78);
 		//creaVagonePasseggeri(10, 50000, 250000, 55);
 		
 		//findVagonePasseggeri(1);
