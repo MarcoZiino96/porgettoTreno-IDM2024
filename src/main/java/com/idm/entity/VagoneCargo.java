@@ -10,7 +10,7 @@ import com.idm.abstractClasses.AbstractVagone;
 @Table(name = "vagoneCargo")
 public class VagoneCargo extends AbstractVagone{
 	
-	@Column (name = "capacita_massima")
+	@Column(name = "capacita_massima")
 	private double capacitaMassima;
 
 	

@@ -53,11 +53,6 @@ public class Beans {
 		ds.setUsername(username);
 		ds.setPassword(password);
 		ds.setUrl(url);
-
-		ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		ds.setUsername("root");
-		ds.setPassword("corsocorso");
-		ds.setUrl("jdbc:mysql://localhost:3306/gestione_treni");
 		return ds; 
 	} 
 
@@ -99,6 +94,7 @@ public PrenotazioneDao getPrenotazione (){
 	PrenotazioneDao dao = new PrenotazioneDaoImpl();
 	   return dao; 
 }
+
 @Bean(name="voto") 
 public VotoDao getVoto (){
 	VotoDao dao = new VotoDaoImpl();
