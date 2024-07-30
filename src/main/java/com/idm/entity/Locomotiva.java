@@ -9,12 +9,13 @@ import com.idm.abstractClasses.AbstractVagone;
 @Table(name = "locomotiva")
 public class Locomotiva extends AbstractVagone {
 	
-	private String potenza;
+	private String potenza; //potenza
 	
-
 	public Locomotiva() {
 		super();
 	}
+	
+
 
 	public String getPotenza() {
 		return potenza;
@@ -24,5 +25,9 @@ public class Locomotiva extends AbstractVagone {
 		this.potenza = potenza;
 	}
 
+	@Override
+	public String toString() {
+		return "Locomotiva [potenza=" + potenza + "]" +  super.toString();
+	}
 	
 }

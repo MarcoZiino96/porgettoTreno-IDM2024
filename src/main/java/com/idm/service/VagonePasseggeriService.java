@@ -7,7 +7,6 @@ import com.idm.config.Beans;
 import com.idm.dao.VagonePasseggeriDao;
 import com.idm.entity.VagonePasseggeri;
 
-
 public class VagonePasseggeriService {
 	
 	

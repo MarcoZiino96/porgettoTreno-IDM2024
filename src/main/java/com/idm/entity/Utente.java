@@ -83,4 +83,10 @@ public class Utente implements Bean{
 		this.email = email;
 	}
 
+	@Override
+	public String toString() {
+		return "Utente [id=" + id + ", nome=" + nome + ", cognome=" + cognome + ", dataNascita=" + dataNascita
+				+ ", username=" + username + ", email=" + email + "]";
+	}
+	
 }

@@ -1,7 +1,5 @@
 package com.idm.config;
-
 import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -14,13 +12,23 @@ import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
 import com.idm.dao.PrenotazioneDao;
 import com.idm.dao.VagonePasseggeriDao;
 import com.idm.dao.VotoDao;
 import com.idm.dao.impl.PrenotazioneDaoImpl;
-import com.idm.dao.impl.VagonePasseggeriImpl;
+import com.idm.dao.LocomotivaDao;
+import com.idm.dao.TrenoDao;
+import com.idm.dao.UtenteDao;
+import com.idm.dao.impl.LocomotivaDaoImpl;
+import com.idm.dao.impl.TrenoDaoImpl;
+import com.idm.dao.impl.UtenteDaoImpl;
 import com.idm.dao.impl.VotoDaoImpl;
+import com.idm.dao.VagoneCargoDao;
+import com.idm.dao.VagoneRistoranteDao;
+import com.idm.dao.impl.VagoneCargoDaoImpl;
+import com.idm.dao.impl.VagonePasseggeriDaoImpl;
+import com.idm.dao.impl.VagoneRistoranteDaoImpl;
+
 
 @Configuration
 @PropertySource("application.properties")
@@ -72,30 +80,72 @@ private HibernateJpaVendorAdapter getJpaVendorAdapter() {
 	return adapter;
 }	
 
-/**** transazioni ****/
-@Bean
-public PlatformTransactionManager getTransactionManager(){
-      JpaTransactionManager transactionManager = new JpaTransactionManager();
-      transactionManager.setEntityManagerFactory(getEntityManager().getObject());
-      return transactionManager;
-}
+	/**** transazioni ****/
+	@Bean
+	public PlatformTransactionManager getTransactionManager(){
+		JpaTransactionManager transactionManager = new JpaTransactionManager();
+		transactionManager.setEntityManagerFactory(getEntityManager().getObject());
+		return transactionManager;
+	}
 
-///**** sezione DAO ****/
 
-@Bean(name="vagonePasseggeri") 
-public VagonePasseggeriDao getCategoriaDao (){
-	VagonePasseggeriDao dao = new VagonePasseggeriImpl();
-	   return dao; 
-}
 @Bean(name="prenotazione") 
 public PrenotazioneDao getPrenotazione (){
 	PrenotazioneDao dao = new PrenotazioneDaoImpl();
 	   return dao; 
 }
+
 @Bean(name="voto") 
 public VotoDao getVoto (){
 	VotoDao dao = new VotoDaoImpl();
+	return dao;
+			}
+
+///**** sezione DAO ****/
+
+@Bean(name="vagonePasseggeri") 
+public VagonePasseggeriDao getVagonePasseggeriDao (){
+	VagonePasseggeriDao dao = new VagonePasseggeriDaoImpl();
 	   return dao; 
 }
+
+@Bean(name="VagoneCargoDao") 
+public VagoneCargoDao getVagoneCargoDao (){
+	VagoneCargoDao dao = new VagoneCargoDaoImpl();
+	   return dao; 
+}
+
+@Bean(name="VagoneRistoranteDao") 
+public VagoneRistoranteDao getVagoneRistoranteDao (){
+	VagoneRistoranteDao dao = new VagoneRistoranteDaoImpl();
+	   return dao; 
+}
+
+	///**** sezione DAO ****/
+
+	@Bean(name="vagonePasseggeri") 
+	public VagonePasseggeriDao getCategoriaDao (){
+		VagonePasseggeriDao dao = new VagonePasseggeriDaoImpl();
+		return dao; 
+	}
+
+	@Bean(name="UtenteDao")
+	public UtenteDao getUtenteDao() {
+		UtenteDao dao = new UtenteDaoImpl();
+		return dao;
+	}
+
+
+	@Bean(name= "TrenoDao")
+	public TrenoDao getTrenoDao() {
+		TrenoDao dao = new TrenoDaoImpl();
+		return dao;
+	}
+
+	@Bean(name="LocomotivaDao")
+	public LocomotivaDao getLocomotivaDao() {
+		LocomotivaDao dao = new LocomotivaDaoImpl();
+		return dao;
+	}
 
 }
