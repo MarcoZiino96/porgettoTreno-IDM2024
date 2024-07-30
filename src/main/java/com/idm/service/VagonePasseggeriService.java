@@ -37,7 +37,9 @@ public class VagonePasseggeriService {
 	public  VagonePasseggeri updateVagonePasseggeri(VagonePasseggeri vp, int id) {
 		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
 		VagonePasseggeriDao dao = factory.getBean("vagonePasseggeri", VagonePasseggeriDao.class);
+		
 		VagonePasseggeri vpOld = findVagonePasseggeri(id);
+		
 		vpOld.setLunghezza(vp.getLunghezza());
 		vpOld.setNumeroPosti(vp.getNumeroPosti());
 		vpOld.setPeso(vp.getPeso());
@@ -51,5 +53,5 @@ public class VagonePasseggeriService {
 		VagonePasseggeriDao dao = factory.getBean("vagonePasseggeri", VagonePasseggeriDao.class);
 		dao.delete(id);	
 	}
-
+    
 }

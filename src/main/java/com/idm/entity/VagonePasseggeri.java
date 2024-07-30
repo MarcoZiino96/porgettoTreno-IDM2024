@@ -10,6 +10,7 @@ import com.idm.abstractClasses.AbstractVagone;
 @Table(name = "vagonePasseggeri")
 public class VagonePasseggeri extends AbstractVagone {
 	
+	
 	private int numeroPosti;
 	
 	
@@ -17,6 +18,14 @@ public class VagonePasseggeri extends AbstractVagone {
 	public VagonePasseggeri() {
 		super();
 	}
+	
+	
+
+	public VagonePasseggeri(int id, float lunghezza, float peso, double prezzo, Treno treno) {
+		super(id, lunghezza, peso, prezzo, treno);
+	}
+
+
 
 	@Override
 	public String toString() {
