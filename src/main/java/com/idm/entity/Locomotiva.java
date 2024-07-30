@@ -11,10 +11,11 @@ public class Locomotiva extends AbstractVagone {
 	
 	private String potenza;
 	
-
 	public Locomotiva() {
 		super();
 	}
+	
+
 
 	public String getPotenza() {
 		return potenza;
@@ -24,5 +25,9 @@ public class Locomotiva extends AbstractVagone {
 		this.potenza = potenza;
 	}
 
+	@Override
+	public String toString() {
+		return "Locomotiva [potenza=" + potenza + "]" +  super.toString();
+	}
 	
 }

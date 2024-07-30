@@ -102,8 +102,16 @@ public abstract class AbstractVagone implements Locomotiva, Cargo, Ristorante, P
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		return "AbstractVagone [id=" + id + ", lunghezza=" + lunghezza + ", peso=" + peso + ", prezzo=" + prezzo
 				+ ", treno=" + treno + "]";
 	}
 	
+=======
+		return "Vagone [id=" + id + ", lunghezza=" + lunghezza + ", peso=" + peso + ", prezzo=" + prezzo
+				+ ", treno=" + treno + "]";
+	}
+	
+	
+>>>>>>> 22422b7e170019fd50518133ae4fb0fdd5425195
 }
