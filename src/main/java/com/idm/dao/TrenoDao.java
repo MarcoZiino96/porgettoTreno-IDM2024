@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import com.idm.entity.Treno;
+import com.idm.entity.TrenoFilter;
 
 //@Component
 
@@ -16,6 +17,7 @@ public interface TrenoDao {
 	public void delete(Treno ref);
 	public void delete(int id);
 	public List<Treno> retrive();
+	public List<Treno> findByFilter(TrenoFilter filter);
 	
 	//public List<Treno> retriveBySigla(String sigla);
 }

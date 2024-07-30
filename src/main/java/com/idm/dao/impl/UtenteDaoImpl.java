@@ -57,5 +57,6 @@ public class UtenteDaoImpl extends DaoImpl implements UtenteDao {
 		if (c!=null)
 			manager.remove(c);
 	}	
+	
 
 }

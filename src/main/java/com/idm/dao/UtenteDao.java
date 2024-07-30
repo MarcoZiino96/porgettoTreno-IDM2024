@@ -14,5 +14,6 @@ public interface UtenteDao {
 	public Utente update(Utente ref);
 	public void delete(Utente ref);
 	public void delete(int id);
-	public List<Utente> retrive();//mettere nel service
+	public List<Utente> retrive();
+	
 }

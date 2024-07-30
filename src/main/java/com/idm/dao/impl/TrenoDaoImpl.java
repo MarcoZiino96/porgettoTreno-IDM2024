@@ -5,11 +5,14 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import org.springframework.transaction.annotation.Transactional;
-
 import com.idm.dao.TrenoDao;
 import com.idm.entity.Treno;
+import com.idm.entity.TrenoFilter;
 import com.idm.entity.Utente;
 
 public class TrenoDaoImpl extends DaoImpl implements TrenoDao {
@@ -56,6 +59,18 @@ public class TrenoDaoImpl extends DaoImpl implements TrenoDao {
 		if (c!=null)
 			manager.remove(c);
 		
+	}
+
+	@Override
+	public List<Treno> findByFilter(TrenoFilter filter) {
+		
+		CriteriaBuilder criteriaBuilder = manager.getCriteriaBuilder();
+		
+		CriteriaQuery<Treno> criteriaQuery = criteriaBuilder.createQuery(Treno.class); 
+		
+		Root<Treno> criteriaRoot = criteriaQuery.from(Treno.class);
+		
+		return null;
 	}
 
 	/*@Override

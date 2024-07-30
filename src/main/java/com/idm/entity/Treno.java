@@ -10,28 +10,32 @@ import com.idm.interfaces.Vagone;
 @Entity
 @Table(name = "treno")
 public class Treno implements Bean {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "utente_fk")
 	private Utente utente;
 	
+	private Double prezzo;
+	private Double peso;
+	private Double lunghezza;
+
 	private String sigla;
-	
+
 	private String foto;
-	
+
 	@OneToMany(mappedBy = "treno")
 	List<AbstractVagone> vagoni;
-	
-	
+
+
 	public Treno() {
 	}
-	
-	
-	
+
+
+
 	public Treno(Utente utente, String sigla) {
 		super();
 		this.utente = utente;
@@ -46,7 +50,7 @@ public class Treno implements Bean {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public Utente getUtente() {
 		return utente;
 	}
@@ -59,15 +63,25 @@ public class Treno implements Bean {
 	public void setSigla(String sigla) {
 		this.sigla = sigla;
 	}
-	
+
 	public String getFoto() {
 		return foto;
 	}
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
+
+
+
 	@Override
 	public String toString() {
-		return "Treno [id=" + id + ", utente=" + utente + ", sigla=" + sigla + ", vagoni=" + vagoni + "]";
+		return "Treno [utente=" + utente + ", prezzo=" + prezzo + ", peso=" + peso + ", lunghezza=" + lunghezza
+				+ ", sigla=" + sigla + ", getId()=" + getId() + ", getUtente()=" + getUtente() + ", getSigla()="
+				+ getSigla() + ", getFoto()=" + getFoto() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
 	}
+
+	
+	
+	
 }
