@@ -26,6 +26,10 @@ public class TestV {
 		//updateVagonePasseggeri(vp1, 1);
 		
 		//deleteVagonePasseggeri(3);
+		
+		//VagonePasseggeri vagonePasseggeri = new VagonePasseggeri(1000, 50000, 250000, 50);
+		
+		//updateVagonePasseggeri(vagonePasseggeri, 1);
 	}
 
 

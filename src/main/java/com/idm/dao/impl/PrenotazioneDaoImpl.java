@@ -9,7 +9,7 @@ import com.idm.dao.PrenotazioneDao;
 import com.idm.entity.Prenotazione;
 import com.idm.entity.VagonePasseggeri;
 
-public class PrenotazioniDaoImpl extends DaoImpl implements PrenotazioneDao{
+public class PrenotazioneDaoImpl extends DaoImpl implements PrenotazioneDao{
 
 	@PersistenceContext
 	private EntityManager manager;

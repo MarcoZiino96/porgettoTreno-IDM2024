@@ -13,7 +13,9 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.idm.dao.PrenotazioneDao;
 import com.idm.dao.VagonePasseggeriDao;
+import com.idm.dao.impl.PrenotazioneDaoImpl;
 import com.idm.dao.impl.VagonePasseggeriImpl;
 
 @Configuration
@@ -70,6 +72,11 @@ public PlatformTransactionManager getTransactionManager(){
 @Bean(name="vagonePasseggeri") 
 public VagonePasseggeriDao getCategoriaDao (){
 	VagonePasseggeriDao dao = new VagonePasseggeriImpl();
+	   return dao; 
+}
+@Bean(name="prenotazione") 
+public PrenotazioneDao getPrenotazione (){
+	PrenotazioneDao dao = new PrenotazioneDaoImpl();
 	   return dao; 
 }
 
