@@ -13,6 +13,7 @@ import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+<<<<<<< HEAD
 import com.idm.dao.PrenotazioneDao;
 import com.idm.dao.VagonePasseggeriDao;
 import com.idm.dao.VotoDao;
@@ -25,6 +26,16 @@ import com.idm.dao.impl.TrenoDaoImpl;
 import com.idm.dao.impl.UtenteDaoImpl;
 import com.idm.dao.impl.VagonePasseggeriImpl;
 import com.idm.dao.impl.VotoDaoImpl;
+=======
+
+import com.idm.dao.VagoneCargoDao;
+import com.idm.dao.VagonePasseggeriDao;
+import com.idm.dao.VagoneRistoranteDao;
+import com.idm.dao.impl.VagoneCargoDaoImpl;
+import com.idm.dao.impl.VagonePasseggeriDaoImpl;
+import com.idm.dao.impl.VagoneRistoranteDaoImpl;
+
+>>>>>>> 4602fa7872897855bc7399fa32ead9653d77c89e
 
 @Configuration
 @PropertySource("application.properties")
@@ -45,10 +56,17 @@ public class Beans {
 @Bean(name="dataSource")
 	public DataSource getDataSource () {
 		DriverManagerDataSource ds = new DriverManagerDataSource(); 
+<<<<<<< HEAD
 		ds.setDriverClassName(driverClassName);
 		ds.setUsername(username);
 		ds.setPassword(password);
 		ds.setUrl(url);
+=======
+		ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
+		ds.setUsername("root");
+		ds.setPassword("corsocorso");
+		ds.setUrl("jdbc:mysql://localhost:3306/gestione_treni");
+>>>>>>> 4602fa7872897855bc7399fa32ead9653d77c89e
 		return ds; 
 	} 
 
@@ -90,9 +108,30 @@ public PrenotazioneDao getPrenotazione (){
 	PrenotazioneDao dao = new PrenotazioneDaoImpl();
 	   return dao; 
 }
+<<<<<<< HEAD
 @Bean(name="voto") 
 public VotoDao getVoto (){
 	VotoDao dao = new VotoDaoImpl();
+=======
+
+///**** sezione DAO ****/
+
+@Bean(name="vagonePasseggeri") 
+public VagonePasseggeriDao getVagonePasseggeriDao (){
+	VagonePasseggeriDao dao = new VagonePasseggeriDaoImpl();
+	   return dao; 
+}
+
+@Bean(name="VagoneCargoDao") 
+public VagoneCargoDao getVagoneCargoDao (){
+	VagoneCargoDao dao = new VagoneCargoDaoImpl();
+	   return dao; 
+}
+
+@Bean(name="VagoneRistoranteDao") 
+public VagoneRistoranteDao getVagoneRistoranteDao (){
+	VagoneRistoranteDao dao = new VagoneRistoranteDaoImpl();
+>>>>>>> 4602fa7872897855bc7399fa32ead9653d77c89e
 	   return dao; 
 }
 
