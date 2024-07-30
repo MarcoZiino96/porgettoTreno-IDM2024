@@ -9,13 +9,9 @@ import com.idm.abstractClasses.AbstractVagone;
 
 @Entity
 @Table(name = "vagonePasseggeri")
-public class VagonePasseggeri extends AbstractVagone {
-<<<<<<< HEAD
+public class VagonePasseggeri extends AbstractVagone {	
 	
-	
-=======
-	@Column
->>>>>>> 4602fa7872897855bc7399fa32ead9653d77c89e
+	@Column(name = "numero_posti")
 	private int numeroPosti;
 	
 	
