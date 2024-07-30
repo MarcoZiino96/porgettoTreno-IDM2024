@@ -21,19 +21,25 @@ public class Treno implements Bean {
 	
 	private String sigla;
 	
+	private String foto;
+	
 	@OneToMany(mappedBy = "treno")
 	List<AbstractVagone> vagoni;
 	
 	
-	
-	
 	public Treno() {
 	}
+	
+	
+	
 	public Treno(Utente utente, String sigla) {
-		
+		super();
 		this.utente = utente;
 		this.sigla = sigla;
 	}
+
+
+
 	public int getId() {
 		return id;
 	}
@@ -53,11 +59,15 @@ public class Treno implements Bean {
 	public void setSigla(String sigla) {
 		this.sigla = sigla;
 	}
+	
+	public String getFoto() {
+		return foto;
+	}
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
 	@Override
 	public String toString() {
 		return "Treno [id=" + id + ", utente=" + utente + ", sigla=" + sigla + ", vagoni=" + vagoni + "]";
 	}
-	
-	
-
 }

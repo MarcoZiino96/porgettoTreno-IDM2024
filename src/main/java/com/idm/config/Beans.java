@@ -88,16 +88,16 @@ public class Beans {
 	}
 
 
-		@Bean(name= "TrenoDao")
-		public TrenoDao getTrenoDao() {
-			TrenoDao dao = new TrenoDaoImpl();
-			return dao;
-		}
-
-		@Bean(name="LocomotivaDao")
-		public LocomotivaDao getLocomotivaDao() {
-			LocomotivaDao dao = new LocomotivaDaoImpl();
-			return dao;
-		}
-
+	@Bean(name= "TrenoDao")
+	public TrenoDao getTrenoDao() {
+		TrenoDao dao = new TrenoDaoImpl();
+		return dao;
 	}
+
+	@Bean(name="LocomotivaDao")
+	public LocomotivaDao getLocomotivaDao() {
+		LocomotivaDao dao = new LocomotivaDaoImpl();
+		return dao;
+	}
+
+}
