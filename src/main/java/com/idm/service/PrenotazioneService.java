@@ -11,18 +11,18 @@ import com.idm.entity.VagonePasseggeri;
 
 public class PrenotazioneService {
 
-public  VagonePasseggeri creaVagonePasseggeri( float lunghezza,float peso,double prezzo, int numeroPosti) {
+public  Prenotazione creaPrenotazione( Prenotazione pr) {
 		
 		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		VagonePasseggeriDao dao = factory.getBean("vagonePasseggeri", VagonePasseggeriDao.class);
-		VagonePasseggeri vp = new VagonePasseggeri();
-		vp.setNumeroPosti(numeroPosti);
-		vp.setPrezzo(prezzo);
-		vp.setLunghezza(lunghezza);
-		vp.setPeso(peso);
-		dao.add(vp);
+		PrenotazioneDao dao = factory.getBean("prenotazione", PrenotazioneDao.class);
+		Prenotazione p = new Prenotazione();
+		p.setDataAttivazione(pr.getDataAttivazione());
+		p.setDataScadenza(pr.getDataScadenza());
+		p.setUtente(pr.getUtente());;
+		p.setTreno(pr.getTreno());;
+		dao.add(p);
 
-		return vp;
+		return p;
 
 	}
 
@@ -34,7 +34,7 @@ public  VagonePasseggeri creaVagonePasseggeri( float lunghezza,float peso,double
 		return p;
 	}
 	
-	public  Prenotazione updateVagonePasseggeri(Prenotazione p, int id) {
+	public  Prenotazione updatePrenotazione(Prenotazione p, int id) {
 		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
 		PrenotazioneDao dao = factory.getBean("prenotazione", PrenotazioneDao.class);
 		Prenotazione pOld = findPrenotazione(id);
@@ -46,9 +46,9 @@ public  VagonePasseggeri creaVagonePasseggeri( float lunghezza,float peso,double
 		return pOld;
 	}
 	
-	public  void deleteVagonePasseggeri(int id) {
+	public  void deletePrenotazione(int id) {
 		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		VagonePasseggeriDao dao = factory.getBean("vagonePasseggeri", VagonePasseggeriDao.class);
+		PrenotazioneDao dao = factory.getBean("prenotazione", PrenotazioneDao.class);
 		dao.delete(id);	
 	}
     

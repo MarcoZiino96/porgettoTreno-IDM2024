@@ -15,8 +15,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.idm.dao.PrenotazioneDao;
 import com.idm.dao.VagonePasseggeriDao;
+import com.idm.dao.VotoDao;
 import com.idm.dao.impl.PrenotazioneDaoImpl;
 import com.idm.dao.impl.VagonePasseggeriImpl;
+import com.idm.dao.impl.VotoDaoImpl;
 
 @Configuration
 @ComponentScan(basePackages = "com.idm")
@@ -77,6 +79,11 @@ public VagonePasseggeriDao getCategoriaDao (){
 @Bean(name="prenotazione") 
 public PrenotazioneDao getPrenotazione (){
 	PrenotazioneDao dao = new PrenotazioneDaoImpl();
+	   return dao; 
+}
+@Bean(name="voto") 
+public VotoDao getVoto (){
+	VotoDao dao = new VotoDaoImpl();
 	   return dao; 
 }
 
