@@ -102,6 +102,8 @@ public class CategoriaDaoTest {
 
 		createdUtente.setEmail("franco.updated@gmail.com");
 		Utente updatedUtente = dao.update(createdUtente);
+		Utente updatedUtente2 = dao.update(createdUtente);
+		
 		System.out.println("Utente aggiornato: " + updatedUtente);
 
 
