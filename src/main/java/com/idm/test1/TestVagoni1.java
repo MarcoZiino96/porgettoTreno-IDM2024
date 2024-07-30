@@ -1,25 +1,13 @@
-package com.idm.service;
-
+package com.idm.test1;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
 import com.idm.config.Beans;
 import com.idm.dao.VagonePasseggeriDao;
 import com.idm.entity.VagonePasseggeri;
-<<<<<<<< HEAD:src/main/java/com/idm/service/VagonePasseggeriService.java
-========
+
 public class TestVagoni1 {
 
-	; 
-
-	public static void main(String[] args) {
->>>>>>>> 4602fa7872897855bc7399fa32ead9653d77c89e:src/main/java/com/idm/test1/TestVagoni1.java
-
-
-public class VagonePasseggeriService {
-	
-	
-    public  VagonePasseggeri creaVagonePasseggeri( float lunghezza,float peso,double prezzo, int numeroPosti) {
+	  VagonePasseggeri creaVagonePasseggeri( float lunghezza,float peso,double prezzo, int numeroPosti) {
 		
 		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
 		VagonePasseggeriDao dao = factory.getBean("vagonePasseggeri", VagonePasseggeriDao.class);
