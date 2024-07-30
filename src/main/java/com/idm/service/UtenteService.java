@@ -20,7 +20,9 @@ public class UtenteService {
 	public Utente find(Integer id) {
 		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
 		UtenteDao dao = factory.getBean("UtenteDao", UtenteDao.class); 
-		return utente.find(id);
+		Utente utenteFind = dao.find(id);
+		System.out.println(utenteFind);
+		return utenteFind;
 	}
 
 
@@ -38,23 +40,39 @@ public class UtenteService {
 
 		utente = dao.create(utente);
 		System.out.println(utente);
-		return dao.create(utente);
+		return utente;
 	}
 
 
-	public Utente update(Utente ref) {
-
-		return utente.update(ref);
+	public Utente update(Utente ref,int id) {
+		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
+		UtenteDao dao = factory.getBean("UtenteDao", UtenteDao.class); 
+		Utente utente = find(id);
+		
+		utente.setCognome(utente.getCognome());
+		utente.setDataNascita(utente.getDataNascita());
+		utente.setEmail(utente.getEmail());
+		utente.setNome(utente.getNome());
+		utente.setUsername(utente.getUsername());
+		utente.setPassword(utente.getPassword());
+		
+		dao.update(utente);
+		
+		return utente;
 	}
 
 
 	public void delete(Utente ref) {
+		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
+		UtenteDao dao = factory.getBean("UtenteDao", UtenteDao.class); 
 		utente.delete(ref);
 
 	}
 
 
 	public void delete(int id) {
+		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
+		UtenteDao dao = factory.getBean("UtenteDao", UtenteDao.class); 
 		utente.delete(id);
 
 	}
@@ -63,6 +81,7 @@ public class UtenteService {
 		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
 		UtenteDao dao = factory.getBean("UtenteDao", UtenteDao.class); 
 		List<Utente> u = dao.retrive();
+		System.out.println(u);
 		return u;
 	}
 
