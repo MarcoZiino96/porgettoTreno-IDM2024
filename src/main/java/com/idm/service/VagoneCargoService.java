@@ -1,46 +1,51 @@
 package com.idm.service;
 
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Component;
 import com.idm.config.Beans;
 import com.idm.dao.VagoneCargoDao;
 import com.idm.entity.VagoneCargo;
 
+@Component
 public class VagoneCargoService {
 	
+	@Autowired
 	private VagoneCargoDao vagoneCargoDao;
 	
-	public VagoneCargo create(float lunghezza, float peso, double prezzo, double capacita) {
-		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		VagoneCargoDao dao = factory.getBean("VagoneCargoDao",VagoneCargoDao.class);
+	public VagoneCargo create(VagoneCargo vagoneCargo) {
 		
-		VagoneCargo vagoneCargo = new VagoneCargo();
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+        vagoneCargoDao = context.getBean(VagoneCargoDao.class);
 		
-		vagoneCargo.setLunghezza(lunghezza);
-		vagoneCargo.setPeso(peso);
-		vagoneCargo.setPrezzo(prezzo);
-		vagoneCargo.setCapacitaMassima(capacita);
+		VagoneCargo vagoneCargoNew = new VagoneCargo();
 		
-		VagoneCargo vc = dao.add(vagoneCargo);
+		vagoneCargoNew .setLunghezza(vagoneCargo.getLunghezza());
+		vagoneCargoNew .setPeso(vagoneCargo.getPeso());
+		vagoneCargoNew .setPrezzo(vagoneCargo.getPrezzo());
+		vagoneCargoNew .setCapacitaMassima(vagoneCargo.getCapacitaMassima());
+		
+		VagoneCargo vc = vagoneCargoDao.add(vagoneCargo);
 		return vc;
 	}
 	
-	public static VagoneCargo findVagoneCargo(int id) {
-		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		VagoneCargoDao dao = factory.getBean("VagoneCargoDao",VagoneCargoDao.class);
-		System.out.println(dao.find(id));
-		return dao.find(id);
+	public  VagoneCargo findVagoneCargo(int id) {
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+		vagoneCargoDao  = context.getBean(VagoneCargoDao.class);
+		
+		return vagoneCargoDao.find(id);
 	}
 	
 	
-	public static void updateVagoneCargo(VagoneCargo vagoneCargo) {
-	BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-	VagoneCargoDao dao = factory.getBean("VagoneCargoDao",VagoneCargoDao.class);
-	  dao.update(vagoneCargo);
-	}public static VagoneCargo updateVagoneCargo(VagoneCargo vagoneCargo, int id) {
-		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		VagoneCargoDao dao = factory.getBean("VagoneCargoDao",VagoneCargoDao.class);
+	public void updateVagoneCargo(VagoneCargo vagoneCargo) {
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+		vagoneCargoDao  = context.getBean(VagoneCargoDao.class);
+vagoneCargoDao.update(vagoneCargo);
+
+	}public  VagoneCargo updateVagoneCargo(VagoneCargo vagoneCargo, int id) {
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+		vagoneCargoDao  = context.getBean(VagoneCargoDao.class);
 		
 		VagoneCargo OldVagoneCargo = findVagoneCargo(id);
 
@@ -49,15 +54,15 @@ public class VagoneCargoService {
 		OldVagoneCargo.setPrezzo(vagoneCargo.getPrezzo());
 		OldVagoneCargo.setCapacitaMassima(vagoneCargo.getCapacitaMassima());
 		  
-		  dao.update(OldVagoneCargo);
+		  vagoneCargoDao.update(OldVagoneCargo);
 		  return(OldVagoneCargo);
 	}
 	
 	
-	public static void deleteVagoneCargo(int id){
-		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		VagoneCargoDao dao = factory.getBean("VagoneCargoDao",VagoneCargoDao.class);
-		 dao.delete(id);
+	public  void deleteVagoneCargo(int id){
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+		vagoneCargoDao  = context.getBean(VagoneCargoDao.class);
+		 vagoneCargoDao.delete(id);
 	}
 	
 

@@ -2,12 +2,13 @@ package com.idm.dao;
 
 import java.util.List;
 
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Component;
+
 
 import com.idm.entity.Locomotiva;
 
 
-@Transactional
+@Component
 public interface LocomotivaDao {
 	Locomotiva find(Integer id);
 	Locomotiva create(Locomotiva ref);

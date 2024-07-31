@@ -2,6 +2,8 @@ package com.idm.abstractClasses;
 
 import javax.persistence.*;
 
+import org.springframework.stereotype.Component;
+
 import com.idm.entity.Treno;
 import com.idm.interfaces.Cargo;
 import com.idm.interfaces.Locomotiva;
@@ -10,6 +12,7 @@ import com.idm.interfaces.Ristorante;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Component
 public abstract class AbstractVagone implements Locomotiva, Cargo, Ristorante, Passeggeri{
 
 	@Id

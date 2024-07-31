@@ -1,55 +1,57 @@
 package com.idm.service;
-
-import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
+import org.springframework.stereotype.Component;
 import com.idm.config.Beans;
 import com.idm.dao.PrenotazioneDao;
-import com.idm.dao.VagonePasseggeriDao;
 import com.idm.entity.Prenotazione;
-import com.idm.entity.VagonePasseggeri;
 
+
+@Component
 public class PrenotazioneService {
+	
+	@Autowired
+	PrenotazioneDao prenotazioneDao;
 
 public  Prenotazione creaPrenotazione( Prenotazione pr) {
 		
-		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		PrenotazioneDao dao = factory.getBean("prenotazione", PrenotazioneDao.class);
+	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+    prenotazioneDao = context.getBean(PrenotazioneDao.class);
 		Prenotazione p = new Prenotazione();
 		p.setDataAttivazione(pr.getDataAttivazione());
 		p.setDataScadenza(pr.getDataScadenza());
 		p.setUtente(pr.getUtente());;
 		p.setTreno(pr.getTreno());;
-		dao.add(p);
+		prenotazioneDao.add(p);
 
 		return p;
 
 	}
 
 	public  Prenotazione findPrenotazione(int id) {
-		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		PrenotazioneDao dao = factory.getBean("prenotazione", PrenotazioneDao.class);
-		Prenotazione p = dao.find(id);
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+	    prenotazioneDao = context.getBean(PrenotazioneDao.class);
+		Prenotazione p = prenotazioneDao.find(id);
 	System.out.println(p);
 		return p;
 	}
 	
 	public  Prenotazione updatePrenotazione(Prenotazione p, int id) {
-		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		PrenotazioneDao dao = factory.getBean("prenotazione", PrenotazioneDao.class);
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+	    prenotazioneDao = context.getBean(PrenotazioneDao.class);
 		Prenotazione pOld = findPrenotazione(id);
 		pOld.setDataAttivazione(p.getDataAttivazione());;
 		pOld.setDataScadenza(p.getDataScadenza());
 		pOld.setUtente(p.getUtente());
 		pOld.setTreno(p.getTreno());
-		dao.update(pOld);
+		prenotazioneDao.update(pOld);
 		return pOld;
 	}
 	
 	public  void deletePrenotazione(int id) {
-		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		PrenotazioneDao dao = factory.getBean("prenotazione", PrenotazioneDao.class);
-		dao.delete(id);	
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+	    prenotazioneDao = context.getBean(PrenotazioneDao.class);
+		prenotazioneDao.delete(id);	
 	}
     
 }

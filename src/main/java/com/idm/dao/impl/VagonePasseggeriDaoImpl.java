@@ -1,10 +1,13 @@
 package com.idm.dao.impl;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import com.idm.dao.VagonePasseggeriDao;
 import com.idm.entity.VagonePasseggeri;
 
+@Component
 public class VagonePasseggeriDaoImpl extends DaoImpl implements VagonePasseggeriDao {
 
 	@PersistenceContext

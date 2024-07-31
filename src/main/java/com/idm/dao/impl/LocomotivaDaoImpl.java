@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.idm.dao.LocomotivaDao;
@@ -13,6 +14,7 @@ import com.idm.entity.Locomotiva;
 import com.idm.entity.Treno;
 import com.idm.entity.Utente;
 
+@Component
 public class LocomotivaDaoImpl extends DaoImpl implements LocomotivaDao {
 	@PersistenceContext
 	EntityManager manager;

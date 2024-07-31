@@ -2,13 +2,15 @@ package com.idm.dao.impl;
 
 
 import javax.persistence.*;
+
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.idm.dao.VagoneCargoDao;
 import com.idm.entity.VagoneCargo;
 
 
-
+@Component
 public class VagoneCargoDaoImpl extends DaoImpl implements VagoneCargoDao {
 
 	@PersistenceContext

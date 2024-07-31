@@ -4,83 +4,86 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Component;
 
 import com.idm.config.Beans;
+import com.idm.dao.TrenoDao;
 import com.idm.dao.UtenteDao;
 import com.idm.entity.Treno;
 import com.idm.entity.Utente;
 
+@Component
 public class UtenteService {
 
-	//@Autowired
-	private UtenteDao utente;
+	@Autowired
+	private UtenteDao utenteDao;
 
 
 	public Utente find(Integer id) {
-		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		UtenteDao dao = factory.getBean("UtenteDao", UtenteDao.class); 
-		Utente utenteFind = dao.find(id);
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+        utenteDao = context.getBean(UtenteDao.class);
+		Utente utenteFind = utenteDao.find(id);
 		System.out.println(utenteFind);
 		return utenteFind;
 	}
 
 
-	public Utente createUtente(String name, String cognome, String email, LocalDate dataNascita, String password, String username) {
-		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		UtenteDao dao = factory.getBean("UtenteDao", UtenteDao.class);
+	public Utente createUtente(Utente utente) {
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+        utenteDao = context.getBean(UtenteDao.class);
 
-		Utente utente = new Utente();
-		utente.setCognome(cognome);
-		utente.setNome(name); 
-		utente.setEmail(email);
-		utente.setDataNascita(dataNascita); 
-		utente.setPassword(password);
-		utente.setUsername(username);
+		Utente utenteNew = new Utente();
+		utenteNew.setCognome(utente.getCognome());
+		utenteNew.setNome(utente.getNome()); 
+		utenteNew.setEmail(utente.getEmail());
+		utenteNew.setDataNascita(utente.getDataNascita()); 
+		utenteNew.setPassword(utente.getPassword());
+		utenteNew.setUsername(utente.getUsername());
 
-		utente = dao.create(utente);
-		System.out.println(utente);
+		utente = utenteDao.create(utente);
 		return utente;
 	}
 
 
 	public Utente update(Utente ref,int id) {
-		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		UtenteDao dao = factory.getBean("UtenteDao", UtenteDao.class); 
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+        utenteDao = context.getBean(UtenteDao.class);
 		Utente utente = find(id);
 		
-		utente.setCognome(utente.getCognome());
-		utente.setDataNascita(utente.getDataNascita());
-		utente.setEmail(utente.getEmail());
-		utente.setNome(utente.getNome());
-		utente.setUsername(utente.getUsername());
-		utente.setPassword(utente.getPassword());
+		utente.setCognome(ref.getCognome());
+		utente.setDataNascita(ref.getDataNascita());
+		utente.setEmail(ref.getEmail());
+		utente.setNome(ref.getNome());
+		utente.setUsername(ref.getUsername());
+		utente.setPassword(ref.getPassword());
 		
-		dao.update(utente);
+		utenteDao.update(utente);
 		
 		return utente;
 	}
 
 
 	public void delete(Utente ref) {
-		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		UtenteDao dao = factory.getBean("UtenteDao", UtenteDao.class); 
-		utente.delete(ref);
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+        utenteDao = context.getBean(UtenteDao.class);
+		utenteDao.delete(ref);
 
 	}
 
 
 	public void delete(int id) {
-		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		UtenteDao dao = factory.getBean("UtenteDao", UtenteDao.class); 
-		utente.delete(id);
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+        utenteDao = context.getBean(UtenteDao.class);
+		utenteDao.delete(id);
 
 	}
 	
 	public List<Utente> retrive(){
-		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		UtenteDao dao = factory.getBean("UtenteDao", UtenteDao.class); 
-		List<Utente> u = dao.retrive();
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+        utenteDao = context.getBean(UtenteDao.class);
+		List<Utente> u = utenteDao.retrive();
 		System.out.println(u);
 		return u;
 	}
