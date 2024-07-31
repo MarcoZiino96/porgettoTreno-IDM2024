@@ -1,7 +1,11 @@
 package com.idm.dao;
 
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.idm.entity.VagonePasseggeri;
 
+@Component
 public interface VagonePasseggeriDao {
 	
 

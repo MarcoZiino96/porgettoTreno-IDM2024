@@ -7,8 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.idm.entity.Treno;
 import com.idm.entity.TrenoFilter;
 
-//@Component
-
+@Component
 public interface TrenoDao {
 
 	public Treno find(Integer id);
@@ -18,6 +17,7 @@ public interface TrenoDao {
 	public void delete(int id);
 	public List<Treno> retrive();
 	public List<Treno> findByFilter(TrenoFilter filter);
+	List<Treno> retriveWithOrder(String ordine, String direction);
 	
 	//public List<Treno> retriveBySigla(String sigla);
 }

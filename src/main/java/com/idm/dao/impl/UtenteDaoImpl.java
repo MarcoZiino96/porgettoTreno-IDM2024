@@ -6,11 +6,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.idm.dao.UtenteDao;
 import com.idm.entity.Utente;
 
+@Component
 public class UtenteDaoImpl extends DaoImpl implements UtenteDao {
 	
 	@PersistenceContext

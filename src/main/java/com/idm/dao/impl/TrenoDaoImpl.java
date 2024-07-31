@@ -9,12 +9,14 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import com.idm.dao.TrenoDao;
 import com.idm.entity.Treno;
 import com.idm.entity.TrenoFilter;
 import com.idm.entity.Utente;
 
+@Component
 public class TrenoDaoImpl extends DaoImpl implements TrenoDao {
 
 	@PersistenceContext
@@ -51,6 +53,14 @@ public class TrenoDaoImpl extends DaoImpl implements TrenoDao {
 		List<Treno> l = q.getResultList();
 		return l;
 	}
+	
+    @Override
+    public List<Treno> retriveWithOrder(String ordine, String direction) {
+        String jpql = "SELECT t FROM Treno t ORDER BY t." + ordine + " " + direction;
+        Query query = manager.createQuery(jpql, Treno.class);
+        return query.getResultList();
+    }
+	
 
 	@Transactional
 	@Override
