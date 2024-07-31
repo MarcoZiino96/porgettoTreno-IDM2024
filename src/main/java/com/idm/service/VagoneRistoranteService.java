@@ -1,6 +1,7 @@
-package service;
+package com.idm.service;
 
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.idm.config.Beans;
@@ -10,6 +11,7 @@ import com.idm.entity.VagoneRistorante;
 
 public class VagoneRistoranteService {
 	
+	@Autowired
 	private VagoneRistoranteDao vagoneRistoranteDao;
 	
 	public VagoneRistorante create(float lunghezza, float peso, double prezzo, int numeroTavoli) {
