@@ -12,7 +12,7 @@ import com.idm.dao.UtenteDao;
 import com.idm.dao.VagonePasseggeriDao;
 import com.idm.entity.Utente;
 import com.idm.entity.VagonePasseggeri;
-public class TestV {
+public class TestService {
 
 
 
