@@ -34,19 +34,18 @@ import com.idm.dao.impl.VagoneRistoranteDaoImpl;
 @PropertySource("application.properties")
 @ComponentScan(basePackages = "com.idm")
 @EnableTransactionManagement
-
 public class Beans {
-	
-	    @Value("${spring.datasource.url}")
-	    private String url;
-	    @Value("${spring.datasource.username}")
-	    private String username;
-	    @Value("${spring.datasource.password}")
-	    private String password;
-	    @Value("${spring.datasource.driver-class-name}")
-	    private String driverClassName;
-    
-@Bean(name="dataSource")
+
+	@Value("${spring.datasource.url}")
+	private String url;
+	@Value("${spring.datasource.username}")
+	private String username;
+	@Value("${spring.datasource.password}")
+	private String password;
+	@Value("${spring.datasource.driver-class-name}")
+	private String driverClassName;
+
+	@Bean(name="dataSource")
 	public DataSource getDataSource () {
 		DriverManagerDataSource ds = new DriverManagerDataSource(); 
 		ds.setDriverClassName(driverClassName);
@@ -56,29 +55,29 @@ public class Beans {
 		return ds; 
 	} 
 
-@Bean(name="entityManager")
-public LocalContainerEntityManagerFactoryBean  getEntityManager(){
-	
-	LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
-	 // JDBC
-	 factory.setDataSource(getDataSource());  
-	 
-	 // imposta il dialogo tra JPA e hibernate
-	 factory.setJpaVendorAdapter(getJpaVendorAdapter()); 
-	
-	 factory.setPackagesToScan("com.idm.entity"); 
-	 return factory; 
-} 	
+	@Bean(name="entityManager")
+	public LocalContainerEntityManagerFactoryBean  getEntityManager(){
+
+		LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
+		// JDBC
+		factory.setDataSource(getDataSource());  
+
+		// imposta il dialogo tra JPA e hibernate
+		factory.setJpaVendorAdapter(getJpaVendorAdapter()); 
+
+		factory.setPackagesToScan("com.idm.entity"); 
+		return factory; 
+	} 	
 
 
-private HibernateJpaVendorAdapter getJpaVendorAdapter() {
-	HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
-	adapter.setDatabase(Database.MYSQL);   
-	
-	adapter.setGenerateDdl(true);         
-	adapter.setShowSql(true);               
-	return adapter;
-}	
+	private HibernateJpaVendorAdapter getJpaVendorAdapter() {
+		HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
+		adapter.setDatabase(Database.MYSQL);   
+
+		adapter.setGenerateDdl(true);         
+		adapter.setShowSql(true);               
+		return adapter;
+	}	
 
 	/**** transazioni ****/
 	@Bean
@@ -86,66 +85,6 @@ private HibernateJpaVendorAdapter getJpaVendorAdapter() {
 		JpaTransactionManager transactionManager = new JpaTransactionManager();
 		transactionManager.setEntityManagerFactory(getEntityManager().getObject());
 		return transactionManager;
-	}
-
-
-@Bean(name="prenotazione") 
-public PrenotazioneDao getPrenotazione (){
-	PrenotazioneDao dao = new PrenotazioneDaoImpl();
-	   return dao; 
-}
-
-@Bean(name="voto") 
-public VotoDao getVoto (){
-	VotoDao dao = new VotoDaoImpl();
-	return dao;
-			}
-
-///**** sezione DAO ****/
-
-@Bean(name="vagonePasseggeri") 
-public VagonePasseggeriDao getVagonePasseggeriDao (){
-	VagonePasseggeriDao dao = new VagonePasseggeriDaoImpl();
-	   return dao; 
-}
-
-@Bean(name="VagoneCargoDao") 
-public VagoneCargoDao getVagoneCargoDao (){
-	VagoneCargoDao dao = new VagoneCargoDaoImpl();
-	   return dao; 
-}
-
-@Bean(name="VagoneRistoranteDao") 
-public VagoneRistoranteDao getVagoneRistoranteDao (){
-	VagoneRistoranteDao dao = new VagoneRistoranteDaoImpl();
-	   return dao; 
-}
-
-	///**** sezione DAO ****/
-
-	@Bean(name="vagonePasseggeri") 
-	public VagonePasseggeriDao getCategoriaDao (){
-		VagonePasseggeriDao dao = new VagonePasseggeriDaoImpl();
-		return dao; 
-	}
-
-	@Bean(name="UtenteDao")
-	public UtenteDao getUtenteDao() {
-		UtenteDao dao = new UtenteDaoImpl();
-		return dao;
-	}
-
-
-	@Bean(name= "TrenoDao")
-	public TrenoDao getTrenoDao() {
-		TrenoDao dao = new TrenoDaoImpl();
-		return dao;
-	}
-
-	@Bean(name="LocomotivaDao")
-	public LocomotivaDao getLocomotivaDao() {
-		LocomotivaDao dao = new LocomotivaDaoImpl();
-		return dao;
 	}
 
 }

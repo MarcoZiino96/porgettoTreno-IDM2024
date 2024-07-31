@@ -2,6 +2,8 @@ package com.idm.entity;
 import java.util.List;
 import javax.persistence.*;
 
+import org.springframework.stereotype.Component;
+
 import com.idm.abstractClasses.AbstractVagone;
 import com.idm.interfaces.Bean;
 import com.idm.interfaces.Vagone;
@@ -34,18 +36,39 @@ public class Treno implements Bean {
 	}
 
 
+//	public Treno(Utente utente, int prezzo, Double peso, Double lunghezza, String sigla, String foto,
+//			List<AbstractVagone> vagoni) {
+//		this.utente = utente;
+//		this.prezzo = prezzo;
+//		this.peso = peso;
+//		this.lunghezza = lunghezza;
+//		this.sigla = sigla;
+//		this.foto = foto;
+//		this.vagoni = vagoni;
+//	}
 
-	public Treno(Utente utente, String sigla) {
-		super();
-		this.utente = utente;
-		this.sigla = sigla;
-	}
+
+
+
 
 
 
 	public int getId() {
 		return id;
 	}
+	public Treno(String sigla) {
+		super();
+		this.sigla = sigla;
+	}
+
+
+	public Treno(int id, String sigla) {
+	super();
+	this.id = id;
+	this.sigla = sigla;
+}
+
+
 	public void setId(int id) {
 		this.id = id;
 	}

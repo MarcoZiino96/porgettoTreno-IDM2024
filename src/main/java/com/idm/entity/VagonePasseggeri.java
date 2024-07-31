@@ -4,11 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 import com.idm.abstractClasses.AbstractVagone;
 
 
 @Entity
 @Table(name = "vagonePasseggeri")
+@Component
 public class VagonePasseggeri extends AbstractVagone {	
 	
 	@Column(name = "numero_posti")

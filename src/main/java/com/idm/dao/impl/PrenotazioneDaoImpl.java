@@ -3,12 +3,14 @@ package com.idm.dao.impl;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.idm.dao.PrenotazioneDao;
 import com.idm.entity.Prenotazione;
 import com.idm.entity.VagonePasseggeri;
 
+@Component
 public class PrenotazioneDaoImpl extends DaoImpl implements PrenotazioneDao{
 
 	@PersistenceContext

@@ -7,8 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.idm.entity.Treno;
 import com.idm.entity.TrenoFilter;
 
-//@Component
-
+@Component
 public interface TrenoDao {
 
 	public Treno find(Integer id);
