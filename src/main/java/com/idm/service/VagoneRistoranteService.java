@@ -1,10 +1,6 @@
 package com.idm.service;
 
-<<<<<<< HEAD
-import org.springframework.beans.factory.BeanFactory;
-=======
 
->>>>>>> 905c8e72d15a9b3b1a5ac3d640bbb4f59d5759d7
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import com.idm.config.Beans;
@@ -14,11 +10,7 @@ import com.idm.entity.VagoneRistorante;
 public class VagoneRistoranteService {
 	
 	@Autowired
-<<<<<<< HEAD
 	private VagoneRistoranteDao vagoneRistoranteDao;
-=======
-	VagoneRistoranteDao vagoneRistoranteDao;
->>>>>>> 905c8e72d15a9b3b1a5ac3d640bbb4f59d5759d7
 	
 	public VagoneRistorante create(VagoneRistorante vagoneRistorante) {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);

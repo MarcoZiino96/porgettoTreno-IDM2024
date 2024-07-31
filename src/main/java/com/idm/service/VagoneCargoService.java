@@ -1,11 +1,6 @@
 package com.idm.service;
 
-<<<<<<< HEAD
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-=======
->>>>>>> 905c8e72d15a9b3b1a5ac3d640bbb4f59d5759d7
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

@@ -32,24 +32,33 @@ public class TrenoService {
 	}
 
 	public Treno createTreno(Treno treno) {
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
-        trenoDao = context.getBean(TrenoDao.class);
+//		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+//        trenoDao = context.getBean(TrenoDao.class);
 		Treno treno1 = new Treno();
 		treno1.setSigla(treno.getSigla());
 		treno1.setUtente(treno.getUtente());
+		treno1.setFoto(treno.getFoto());
+		treno1.setLunghezza(treno.getLunghezza());
+		treno1.setPeso(treno.getPeso());
+		treno1.setPrezzo(treno.getPrezzo());
 		treno1 = trenoDao.create(treno1);
+		
 		return treno1;
 	}
 
 	public Treno update(Treno treno,int id) {
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
-        trenoDao = context.getBean(TrenoDao.class);
+//		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+//        trenoDao = context.getBean(TrenoDao.class);
 		
 		Treno treno1 = find(id);
 
-		treno1.setSigla(treno1.getSigla());
-		treno1.setUtente(treno1.getUtente());
-		trenoDao.update(treno1);
+		treno1.setSigla(treno.getSigla());
+		treno1.setUtente(treno.getUtente());
+		treno1.setFoto(treno.getFoto());
+		treno1.setLunghezza(treno.getLunghezza());
+		treno1.setPeso(treno.getPeso());
+		treno1.setPrezzo(treno.getPrezzo());
+		trenoDao.update(treno);
 		return treno1;
 	}
 
@@ -66,17 +75,17 @@ public class TrenoService {
 	}
 
 	public List<Treno> retrive() {
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
-        trenoDao = context.getBean(TrenoDao.class);
+//		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+//        trenoDao = context.getBean(TrenoDao.class);
 		List<Treno> u = trenoDao.retrive();
 		System.out.println(u);
 		return u;
 	}
 	
 	public List<Treno> retriveWithOrder(String ordine, String direction) {
-        BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-        TrenoDao dao = factory.getBean("TrenoDao", TrenoDao.class);
-        List<Treno> u = dao.retriveWithOrder(ordine, direction);
+//        BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
+//        TrenoDao dao = factory.getBean("TrenoDao", TrenoDao.class);
+        List<Treno> u = trenoDao.retriveWithOrder(ordine, direction);
         System.out.println(u);
 		return u;
     }
