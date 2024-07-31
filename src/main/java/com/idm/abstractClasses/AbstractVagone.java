@@ -30,6 +30,30 @@ public abstract class AbstractVagone implements Locomotiva, Cargo, Ristorante, P
 	public AbstractVagone() {
 		
 	}
+	
+	
+
+
+	
+
+
+
+
+	public AbstractVagone(int id, float lunghezza, float peso, double prezzo, Treno treno) {
+		super();
+		this.id = id;
+		this.lunghezza = lunghezza;
+		this.peso = peso;
+		this.prezzo = prezzo;
+		this.treno = treno;
+	}
+
+
+
+
+
+
+
 
 
 	public int getId() {
@@ -74,4 +98,12 @@ public abstract class AbstractVagone implements Locomotiva, Cargo, Ristorante, P
 	{
 		return this.lunghezza;
 	}
+
+
+	@Override
+	public String toString() {
+		return "AbstractVagone [id=" + id + ", lunghezza=" + lunghezza + ", peso=" + peso + ", prezzo=" + prezzo
+				+ ", treno=" + treno + "]";
+	}
+	
 }

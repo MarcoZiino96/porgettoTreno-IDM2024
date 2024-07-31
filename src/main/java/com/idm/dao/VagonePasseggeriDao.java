@@ -1,6 +1,9 @@
 package com.idm.dao;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.idm.entity.VagonePasseggeri;
+
 
 public interface VagonePasseggeriDao {
 	
