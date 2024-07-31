@@ -20,9 +20,9 @@ public abstract class AbstractVagone implements Vagone{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	@Column
-	private float lunghezza;
+	private double lunghezza;
 	@Column
-	private float peso;
+	private double peso;
 	@Column
 	private double prezzo;
 	
@@ -35,14 +35,14 @@ public abstract class AbstractVagone implements Vagone{
 		
 	}
 	
-	public AbstractVagone( float lunghezza, float peso, double prezzo, Treno treno) {
+	public AbstractVagone( double lunghezza, double peso, double prezzo, Treno treno) {
 		this.lunghezza = lunghezza;
 		this.peso = peso;
 		this.prezzo = prezzo;
 		this.treno = treno;
 	}
 	
-	public AbstractVagone( float lunghezza, float peso, double prezzo) {
+	public AbstractVagone( double lunghezza, double peso, double prezzo) {
 		this.lunghezza = lunghezza;
 		this.peso = peso;
 		this.prezzo = prezzo;
@@ -58,12 +58,12 @@ public abstract class AbstractVagone implements Vagone{
 	}
 
 
-	public void setLunghezza(float lunghezza) {
+	public void setLunghezza(double lunghezza) {
 		this.lunghezza = lunghezza;
 	}
 
 
-	public void setPeso(float peso) {
+	public void setPeso(double peso) {
 		this.peso = peso;
 	}
 
@@ -73,7 +73,7 @@ public abstract class AbstractVagone implements Vagone{
 	}
 
 
-	public float getPeso() {
+	public double getPeso() {
 		return peso;
 	}
 
@@ -86,7 +86,7 @@ public abstract class AbstractVagone implements Vagone{
 
 
 
-	public float getLunghezza()
+	public double getLunghezza()
 	{
 		return this.lunghezza;
 	}

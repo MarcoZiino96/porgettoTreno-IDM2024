@@ -18,7 +18,7 @@ public class VagoneCargo extends AbstractVagone{
 
 	
 
-	public VagoneCargo(float lunghezza, float peso, double prezzo, double capacitaMassima) {
+	public VagoneCargo(double lunghezza, double peso, double prezzo, double capacitaMassima) {
 		super(lunghezza, peso, prezzo);
 		this.capacitaMassima = capacitaMassima;
 	}

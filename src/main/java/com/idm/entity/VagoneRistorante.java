@@ -17,7 +17,7 @@ public class VagoneRistorante extends AbstractVagone {
 
 
     
-	public VagoneRistorante(float lunghezza, float peso, double prezzo, int numeroTavoli){
+	public VagoneRistorante(double lunghezza, double peso, double prezzo, int numeroTavoli){
 		super(lunghezza, peso, prezzo);
 		this.numeroTavoli = numeroTavoli;
 	}

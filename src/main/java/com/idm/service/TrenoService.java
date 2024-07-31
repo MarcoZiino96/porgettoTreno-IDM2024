@@ -3,6 +3,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
+
+import com.idm.abstractClasses.AbstractVagone;
 import com.idm.config.Beans;
 import com.idm.dao.TrenoDao;
 import com.idm.entity.FrecciaRossaBuilder;
@@ -30,34 +32,43 @@ public class TrenoService {
 
 	
 	public Treno createTreno(String string) {
+		
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
         trenoDao = context.getBean(TrenoDao.class);
         AnnotationConfigApplicationContext contextBuilder = new AnnotationConfigApplicationContext(Beans.class);
         frecciaRossaBuilder = context.getBean(FrecciaRossaBuilder.class);
         
         Treno treno = frecciaRossaBuilder.creaTreno(string);
+        
         if(treno.getVagoni().isEmpty()) {
         	throw new RuntimeException("La lista è vuota");
         }
+        
+        double prezzoTreno = treno.getVagoni().stream()
+                .mapToDouble(AbstractVagone::getPrezzo) 
+                .sum();
+        
+        double lunghezzaTreno = treno.getVagoni().stream()
+                .mapToDouble(AbstractVagone::getLunghezza) 
+                .sum();
+        
+        double pesoTreno = treno.getVagoni().stream()
+                .mapToDouble(AbstractVagone::getLunghezza) 
+                .sum();
+       System.out.println(treno.getVagoni());
+        treno.setPrezzo(prezzoTreno);
+        treno.setLunghezza(lunghezzaTreno);
+        treno.setPeso(pesoTreno);
         trenoDao.create(treno);
        return treno;
-        	
-//		Treno treno1 = new Treno();
-//		treno1.setSigla(treno.getSigla());
-//		treno1.setUtente(treno.getUtente());
-//		treno1.setFoto(treno.getFoto());
-//		treno1.setLunghezza(treno.getLunghezza());
-//		treno1.setPeso(treno.getPeso());
-//		treno1.setPrezzo(treno.getPrezzo());
-//		trenoDao.create(treno1);
 	}
 
 	public Treno update(Treno treno,int id) {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
         trenoDao = context.getBean(TrenoDao.class);
 		Treno treno1 = find(id);
-		treno1.setSigla(treno1.getSigla());
-		treno1.setUtente(treno1.getUtente());
+		treno1.setSigla(treno.getSigla());
+		treno1.setUtente(treno.getUtente());
 		treno1.setFoto(treno.getFoto());
 		treno1.setLunghezza(treno.getLunghezza());
 		treno1.setPeso(treno.getPeso());

@@ -21,9 +21,9 @@ public class Treno implements Bean {
 	@ManyToOne
 	@JoinColumn(name = "utente_fk")
 	private Utente utente;
-	private int prezzo;
-	private Double peso;
-	private Double lunghezza;
+	private double prezzo;
+	private double peso;
+	private double lunghezza;
 
 	private String sigla;
 
@@ -64,32 +64,32 @@ public class Treno implements Bean {
 	}
 
 
-	public int getPrezzo() {
+	public double getPrezzo() {
 		return prezzo;
 	}
 
 
-	public void setPrezzo(int prezzo) {
+	public void setPrezzo(double prezzo) {
 		this.prezzo = prezzo;
 	}
 
 
-	public Double getPeso() {
+	public double getPeso() {
 		return peso;
 	}
 
 
-	public void setPeso(Double peso) {
+	public void setPeso(double peso) {
 		this.peso = peso;
 	}
 
 
-	public Double getLunghezza() {
+	public double getLunghezza() {
 		return lunghezza;
 	}
 
 
-	public void setLunghezza(Double lunghezza) {
+	public void setLunghezza(double lunghezza) {
 		this.lunghezza = lunghezza;
 	}
 

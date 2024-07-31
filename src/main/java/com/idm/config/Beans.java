@@ -100,15 +100,17 @@ public class Beans {
 
 	@Bean
 	public Locomotiva locomotiva(
-			@Value("${locomotiva.potenza}") String potenza
-			/*@Value("${locomotivaConcreta.alimentazione}") String alimentazione */) {
-		return new Locomotiva(potenza);
+			@Value("${locomotiva.potenza}") String potenza,
+			@Value("${locomotiva.prezzo}") double prezzo,
+			@Value("${locomotiva.lunghezza}") double lunghezza,
+			@Value("${locomotiva.peso}") double peso) {
+		return new Locomotiva(potenza, lunghezza, peso, prezzo);
 	}
 	
     @Bean
     public VagonePasseggeri vagonePasseggieri(
-            @Value("${vagonePasseggeri.peso}") float peso,
-            @Value("${vagonePasseggeri.prezzo}") float lunghezza,
+            @Value("${vagonePasseggeri.peso}") double peso,
+            @Value("${vagonePasseggeri.prezzo}") double lunghezza,
             @Value("${vagonePasseggeri.lunghezza}") double prezzo,
             @Value("${vagonePasseggeri.numeroPosti}") int numeroPosti) {
         return new VagonePasseggeri(lunghezza,peso, prezzo, numeroPosti);
@@ -117,26 +119,20 @@ public class Beans {
     @Bean
     public VagoneRistorante VagoneRistorante(
     
-            @Value("${vagoneRistorante.peso}") float peso,
+            @Value("${vagoneRistorante.peso}") double peso,
             @Value("${vagoneRistorante.prezzo}") double prezzo,
-            @Value("${vagoneRistorante.lunghezza}") float lunghezza,
+            @Value("${vagoneRistorante.lunghezza}") double lunghezza,
             @Value("${vagoneRistorante.numeroTavoli}") int numeroTavoli) {
         return new VagoneRistorante(peso, lunghezza,prezzo, numeroTavoli);
     }
 
     @Bean
     public VagoneCargo vagoneCargo(
-            @Value("${vagoneCargo.peso}") float peso,
+            @Value("${vagoneCargo.peso}") double peso,
             @Value("${vagoneCargo.prezzo}") double prezzo,
-            @Value("${vagoneCargo.lunghezza}") float lunghezza,
+            @Value("${vagoneCargo.lunghezza}") double lunghezza,
             @Value("${vagoneCargo.capacitaMassima}") double capacitaMassima) {
         return new VagoneCargo (peso, lunghezza, prezzo, capacitaMassima);
     }
     
-//    @Bean
-//    public VagoneCargo vagoneCargo() {
-//        return new VagoneCargo (250.0f,250.0f, 200000.0, 500000.0);
-//    }
-    
-
 }

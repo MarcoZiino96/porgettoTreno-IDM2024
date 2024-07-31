@@ -18,7 +18,7 @@ public class TrenoserviceTest {
 	  AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
       TrenoService  trenoService = context.getBean(TrenoService.class);
 		
-        trenoService.createTreno("hRRRRRHppppppppp");
+        trenoService.createTreno("hch");
 	}
 	
 //	public static void creaTreno(String string) {

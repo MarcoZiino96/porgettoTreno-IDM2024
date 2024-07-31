@@ -17,10 +17,16 @@ public class Locomotiva extends AbstractVagone {
 	public Locomotiva() {
 		
 	}
-	public Locomotiva(String potenza) {
+	
+	
+
+
+	public Locomotiva(String potenza,double lunghezza, double peso, double prezzo) {
+		super(lunghezza, peso, prezzo);
 		this.potenza = potenza;
 	}
-	
+
+
 
 
 	public String getPotenza() {

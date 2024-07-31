@@ -25,7 +25,7 @@ public class VagonePasseggeri extends AbstractVagone {
 	
 	
 
-	public VagonePasseggeri( float lunghezza, float peso, double prezzo, int numeroPosti) {
+	public VagonePasseggeri( double lunghezza, double peso, double prezzo, int numeroPosti) {
 		super( lunghezza, peso, prezzo);
 		this.numeroPosti = numeroPosti;
 	}
