@@ -66,7 +66,14 @@ public class TrenoService {
 		List<Treno> u = dao.retrive();
 		System.out.println(u);
 		return u;
-
 	}
+	
+	public List<Treno> retriveWithOrder(String ordine, String direction) {
+        BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
+        TrenoDao dao = factory.getBean("TrenoDao", TrenoDao.class);
+        List<Treno> u = dao.retriveWithOrder(ordine, direction);
+        System.out.println(u);
+		return u;
+    }
 
 }

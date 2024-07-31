@@ -45,14 +45,20 @@ public class CategoriaDaoTest {
 		treno.setSigla("TR999");
 		treno = trenoDao.update(treno);
 		System.out.println("Treno aggiornato: " + treno);
+		
+		
+		
+		treno.setFoto("x"); //cancello
+		treno = trenoDao.update(treno);
+		System.out.println("Treno aggiornato: " + treno);
 
 
-		trenoDao.delete(treno.getId());
-		System.out.println("Treno eliminato con id: " + treno.getId());
-
-
-		Treno deletedTreno = trenoDao.find(treno.getId());
-		System.out.println("Treno dopo l'eliminazione: " + deletedTreno);
+//		trenoDao.delete(treno.getId());
+//		System.out.println("Treno eliminato con id: " + treno.getId());
+//
+//
+//		Treno deletedTreno = trenoDao.find(treno.getId());
+//		System.out.println("Treno dopo l'eliminazione: " + deletedTreno);
 
 	}
 
