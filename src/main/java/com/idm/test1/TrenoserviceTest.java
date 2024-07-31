@@ -1,48 +1,30 @@
 package com.idm.test1;
 
-import java.time.LocalDate;
-import java.util.List;
-
-import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import com.idm.config.Beans;
-import com.idm.dao.LocomotivaDao;
-import com.idm.dao.TrenoDao;
-import com.idm.dao.UtenteDao;
-import com.idm.dao.impl.TrenoDaoImpl;
-import com.idm.entity.Locomotiva;
 import com.idm.entity.Treno;
-import com.idm.entity.Utente;
 import com.idm.service.TrenoService;
 
 
 public class TrenoserviceTest {
 
 	@Autowired
-	private static TrenoService  trenoService ;
+	private static TrenoService  trenoService;
 
 	
 	public static void main(String[] args) {
 		
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
-        trenoService = context.getBean(TrenoService.class);
-
-		Treno  treno = new Treno("TN");
-		Treno  treno1 = new Treno("FR");
-		Treno  treno2= new Treno("TN");
+	  AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+      TrenoService  trenoService = context.getBean(TrenoService.class);
 		
-		trenoService.createTreno(treno);
-		trenoService.createTreno(treno1);
-		trenoService.createTreno(treno2);
-
-
+        trenoService.createTreno("hRRRRRHppppppppp");
 	}
 	
-	public static void creaTreno(Treno treno) {
-		trenoService.createTreno(treno);
-	}
+//	public static void creaTreno(String string) {
+//		trenoService.createTreno(string);
+//	}
+	
 	
 	
 

@@ -1,5 +1,4 @@
 package com.idm.interfaces;
 
-public interface Bean {
-
+public interface Bean{
 }

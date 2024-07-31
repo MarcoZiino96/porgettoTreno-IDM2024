@@ -9,11 +9,12 @@ import com.idm.interfaces.Cargo;
 import com.idm.interfaces.Locomotiva;
 import com.idm.interfaces.Passeggeri;
 import com.idm.interfaces.Ristorante;
+import com.idm.interfaces.Vagone;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Component
-public abstract class AbstractVagone implements Locomotiva, Cargo, Ristorante, Passeggeri{
+public abstract class AbstractVagone implements Vagone{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,30 +35,18 @@ public abstract class AbstractVagone implements Locomotiva, Cargo, Ristorante, P
 		
 	}
 	
-	
-
-
-	
-
-
-
-
-	public AbstractVagone(int id, float lunghezza, float peso, double prezzo, Treno treno) {
-		super();
-		this.id = id;
+	public AbstractVagone( float lunghezza, float peso, double prezzo, Treno treno) {
 		this.lunghezza = lunghezza;
 		this.peso = peso;
 		this.prezzo = prezzo;
 		this.treno = treno;
 	}
-
-
-
-
-
-
-
-
+	
+	public AbstractVagone( float lunghezza, float peso, double prezzo) {
+		this.lunghezza = lunghezza;
+		this.peso = peso;
+		this.prezzo = prezzo;
+	}
 
 	public int getId() {
 		return id;
@@ -106,7 +95,7 @@ public abstract class AbstractVagone implements Locomotiva, Cargo, Ristorante, P
 	@Override
 	public String toString() {
 		return "AbstractVagone [id=" + id + ", lunghezza=" + lunghezza + ", peso=" + peso + ", prezzo=" + prezzo
-				+ ", treno=" + treno + "]";
+				;
 	}
 	
 }

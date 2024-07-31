@@ -25,16 +25,18 @@ public class VagonePasseggeri extends AbstractVagone {
 	
 	
 
-	public VagonePasseggeri(int id, float lunghezza, float peso, double prezzo, Treno treno) {
-		super(id, lunghezza, peso, prezzo, treno);
+	public VagonePasseggeri( float lunghezza, float peso, double prezzo, int numeroPosti) {
+		super( lunghezza, peso, prezzo);
+		this.numeroPosti = numeroPosti;
 	}
 
 
 
 	@Override
 	public String toString() {
-		return "VagonePasseggeri  [numeroPosti=" + numeroPosti + "]"+
-	             super.toString();
+		return   super.toString() +
+				"VagonePasseggeri  [numeroPosti=" + numeroPosti;
+	            
 	}
 
 	public int getNumeroPosti() {

@@ -23,6 +23,16 @@ import com.idm.dao.impl.LocomotivaDaoImpl;
 import com.idm.dao.impl.TrenoDaoImpl;
 import com.idm.dao.impl.UtenteDaoImpl;
 import com.idm.dao.impl.VotoDaoImpl;
+import com.idm.entity.Locomotiva;
+import com.idm.entity.VagoneCargo;
+import com.idm.entity.VagonePasseggeri;
+import com.idm.entity.VagoneRistorante;
+
+//import entity.CabinaPasseggieri;
+//import entity.CabinaRistorante;
+//import entity.CargoConcreto;
+//import entity.LocomotivaConcreta;
+
 import com.idm.dao.VagoneCargoDao;
 import com.idm.dao.VagoneRistoranteDao;
 import com.idm.dao.impl.VagoneCargoDaoImpl;
@@ -86,5 +96,47 @@ public class Beans {
 		transactionManager.setEntityManagerFactory(getEntityManager().getObject());
 		return transactionManager;
 	}
+	
+
+	@Bean
+	public Locomotiva locomotiva(
+			@Value("${locomotiva.potenza}") String potenza
+			/*@Value("${locomotivaConcreta.alimentazione}") String alimentazione */) {
+		return new Locomotiva(potenza);
+	}
+	
+    @Bean
+    public VagonePasseggeri vagonePasseggieri(
+            @Value("${vagonePasseggeri.peso}") float peso,
+            @Value("${vagonePasseggeri.prezzo}") float lunghezza,
+            @Value("${vagonePasseggeri.lunghezza}") double prezzo,
+            @Value("${vagonePasseggeri.numeroPosti}") int numeroPosti) {
+        return new VagonePasseggeri(lunghezza,peso, prezzo, numeroPosti);
+    }
+
+    @Bean
+    public VagoneRistorante VagoneRistorante(
+    
+            @Value("${vagoneRistorante.peso}") float peso,
+            @Value("${vagoneRistorante.prezzo}") double prezzo,
+            @Value("${vagoneRistorante.lunghezza}") float lunghezza,
+            @Value("${vagoneRistorante.numeroTavoli}") int numeroTavoli) {
+        return new VagoneRistorante(peso, lunghezza,prezzo, numeroTavoli);
+    }
+
+    @Bean
+    public VagoneCargo vagoneCargo(
+            @Value("${vagoneCargo.peso}") float peso,
+            @Value("${vagoneCargo.prezzo}") double prezzo,
+            @Value("${vagoneCargo.lunghezza}") float lunghezza,
+            @Value("${vagoneCargo.capacitaMassima}") double capacitaMassima) {
+        return new VagoneCargo (peso, lunghezza, prezzo, capacitaMassima);
+    }
+    
+//    @Bean
+//    public VagoneCargo vagoneCargo() {
+//        return new VagoneCargo (250.0f,250.0f, 200000.0, 500000.0);
+//    }
+    
 
 }

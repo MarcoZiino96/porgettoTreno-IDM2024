@@ -3,16 +3,22 @@ package com.idm.entity;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 import com.idm.abstractClasses.AbstractVagone;
 
 @Entity
 @Table(name = "locomotiva")
+@Component
 public class Locomotiva extends AbstractVagone {
 	
-	private String potenza; //potenza
+	private String potenza;
 	
 	public Locomotiva() {
-		super();
+		
+	}
+	public Locomotiva(String potenza) {
+		this.potenza = potenza;
 	}
 	
 
@@ -27,7 +33,8 @@ public class Locomotiva extends AbstractVagone {
 
 	@Override
 	public String toString() {
-		return "Locomotiva [potenza=" + potenza + "]" +  super.toString();
+		return 
+				super.toString() +"Locomotiva [potenza=" + potenza + "]"   ;
 	}
 	
 }
