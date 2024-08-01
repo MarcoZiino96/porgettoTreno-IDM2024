@@ -13,6 +13,6 @@ public class RistoranteException extends TrenoException {
 
     @Override
     public String getSuggerimento() {
-        return "Per creare cabine ristoranti si prega di inserire un solo ristorante" + " HRPPPP " + " al posto di " + "H" + getMessage();
+        return "Per creare cabine ristoranti si prega di inserire un solo ristorante" + " HRPPPP " + " al posto di "  + getMessage();
     }
 }

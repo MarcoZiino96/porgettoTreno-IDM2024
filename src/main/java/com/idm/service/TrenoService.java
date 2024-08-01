@@ -46,7 +46,7 @@ public class TrenoService {
         frecciaRossaBuilder = context.getBean(FrecciaRossaBuilder.class);
         
         Treno treno = frecciaRossaBuilder.creaTreno(string);
-        
+    
         if(treno.getVagoni().isEmpty()) {
         	throw new RuntimeException("La lista è vuota");
         }

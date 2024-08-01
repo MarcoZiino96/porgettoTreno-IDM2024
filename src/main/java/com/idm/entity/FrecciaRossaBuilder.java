@@ -12,8 +12,7 @@ import com.idm.service.TrenoService;
 
 @Component
 public class FrecciaRossaBuilder extends TrenoBuilderAbstract {
-	
-	
+
 	    @Autowired
 	    private VagoneRistorante vagoneRistorante;
 

@@ -22,7 +22,8 @@ public abstract class TrenoBuilderAbstract {
 		String strgMaiuscola = input.toUpperCase();
 
 		try{
-			validaStringa(input);
+			validaStringa(strgMaiuscola);
+			vagoni = creaLocomotiva(strgMaiuscola);
 
 			if(strgMaiuscola.charAt(0) == 'H' && strgMaiuscola.charAt(input.length() - 1) == 'H' )
 				vagoni = creaVagoni(strgMaiuscola.substring(1, strgMaiuscola.length() - 1));

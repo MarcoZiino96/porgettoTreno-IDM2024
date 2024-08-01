@@ -18,12 +18,12 @@ public class TrenoserviceTest {
 	  AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
       TrenoService  trenoService = context.getBean(TrenoService.class);
 		
-        trenoService.createTreno("hprpph");
+        System.out.println(trenoService.createTreno("hcccc")); 
 	}
 	
-//	public static void creaTreno(String string) {
-//		trenoService.createTreno(string);
-//	}
+	public static void creaTreno(String string) {
+		trenoService.createTreno(string);
+	}
 	
 	
 	
