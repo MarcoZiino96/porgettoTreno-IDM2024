@@ -27,8 +27,7 @@ public class Treno implements Bean {
 	private String sigla;
 	private String foto;
 	private String compagnia;
-
-	@OneToMany(mappedBy = "treno")
+	@OneToMany(mappedBy = "treno", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	List<AbstractVagone> vagoni;
 
 
@@ -140,6 +139,18 @@ public void getId(int id) {
 	public void setSigla(String sigla) {
 		this.sigla = sigla;
 	}
+	public String getCompagnia() {
+		return compagnia;
+	}
+
+	public void setCompagnia(String compagnia) {
+		this.compagnia = compagnia;
+	}
+
+	public void setPrezzo(Double prezzo) {
+		this.prezzo = prezzo;
+	}
+
 	public String getFoto() {
 		return foto;
 	}

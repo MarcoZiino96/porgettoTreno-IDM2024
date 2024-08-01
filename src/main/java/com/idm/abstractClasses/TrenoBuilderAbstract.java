@@ -2,24 +2,36 @@ package com.idm.abstractClasses;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.idm.config.Beans;
+import com.idm.dao.AbstractVagoneDao;
 import com.idm.entity.Treno;
 import com.idm.exception.CargoException;
 import com.idm.exception.LocomotivaException;
 import com.idm.exception.RistoranteException;
 import com.idm.exception.StringaException;
 import com.idm.interfaces.Vagone;
+import com.idm.service.TrenoService;
 
 
 
 public abstract class TrenoBuilderAbstract {
 	
-	
-
+	 @Autowired
+	 private AbstractVagoneDao abstractVagoneDao;
+	 
 	public Treno creaTreno(String input){
+		
+		Treno treno = new Treno();
 
 	List<AbstractVagone> vagoni  = new ArrayList<>() ;
 
 		String strgMaiuscola = input.toUpperCase();
+		
+		
 
 		try{
 			validaStringa(strgMaiuscola);
@@ -30,6 +42,12 @@ public abstract class TrenoBuilderAbstract {
 
 			else if (strgMaiuscola.charAt(0) == 'H')
 				vagoni = creaVagoni(strgMaiuscola.substring(1));
+			
+			for (AbstractVagone vagone : vagoni) {
+	            vagone.setTreno(treno); 
+	        }
+			
+			treno.setVagoni(vagoni);
 
 		}catch(StringaException e){
 			System.out.println("Errore: "+ e.getSigla() + " Questa sigla non va bene " +e.getMessage());
@@ -53,12 +71,19 @@ public abstract class TrenoBuilderAbstract {
 			System.out.println("Suggerimento: " + e.getSuggerimento());
 		}
 		
+		
+		
+		
+		
 
-		return new Treno(vagoni);
+		return treno ;
 	}
 
 
 	private List<AbstractVagone> creaLocomotiva(String tipo){
+		
+//		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+//	    abstractVagoneDao = context.getBean(AbstractVagoneDao.class);
 
 		char locomotivaTesta = tipo.charAt(0);
 		char locomotivaCoda = tipo.charAt(tipo.length() -1);
@@ -68,17 +93,24 @@ public abstract class TrenoBuilderAbstract {
 		if (locomotivaTesta != 'H') {
 			throw new LocomotivaException("La locomotiva non è in testa al treno", tipo);
 		}
+		//abstractVagoneDao.add(getCostruisciLocomotiva());
 		vagoni.add(getCostruisciLocomotiva()); // Aggiungi sempre una locomotiva in testa
 
 		if (locomotivaCoda == 'H') {
+			
+			//abstractVagoneDao.add(getCostruisciLocomotiva());
 			vagoni.add(getCostruisciLocomotiva()); // Aggiungi una seconda locomotiva in coda se presente
 		}
-
+		
+		
 		return vagoni;
 
 	}
 
 	private List<AbstractVagone> creaVagoni(String composizione) {
+		
+//		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+//	    abstractVagoneDao = context.getBean(AbstractVagoneDao.class);
 
 		boolean contieneCargo = composizione.indexOf('C') != -1;
 		int ristoranteCount = 0;
@@ -90,6 +122,8 @@ public abstract class TrenoBuilderAbstract {
 				if (tipo != 'C') {
 					throw new CargoException("Se è presente un Cargo ('C'), tutti i vagoni devono essere Cargo.", composizione);
 				}
+				
+			//	abstractVagoneDao.add(getCostruisciVagoneCargo());
 				vagoni.add(getCostruisciVagoneCargo());
 
 			}
@@ -100,11 +134,13 @@ public abstract class TrenoBuilderAbstract {
 
 			switch (tipo) {
 			case 'P':
+			//	abstractVagoneDao.add(getCostruisciVagonePasseggieri());
 				vagoni.add(getCostruisciVagonePasseggieri());
 				break;
 			case 'R':
 				if(ristoranteCount >= 1)
-					throw new RistoranteException("Ci può essere solo un ristorante", composizione);
+				throw new RistoranteException("Ci può essere solo un ristorante", composizione);
+			//	abstractVagoneDao.add(getCostruisciVagoneRistorante());
 				vagoni.add(getCostruisciVagoneRistorante());
 				ristoranteCount++;
 				break;

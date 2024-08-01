@@ -92,6 +92,14 @@ public abstract class AbstractVagone implements Vagone{
 	}
 
 
+	public Treno getTreno() {
+		return treno;
+	}
+
+	public void setTreno(Treno treno) {
+		this.treno = treno;
+	}
+
 	@Override
 	public String toString() {
 		return " id=" + id + ", lunghezza=" + lunghezza + ", peso=" + peso + ", prezzo=" + prezzo +" "

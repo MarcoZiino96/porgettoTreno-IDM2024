@@ -7,6 +7,12 @@ import org.springframework.stereotype.Component;
 import com.idm.abstractClasses.AbstractVagone;
 import com.idm.abstractClasses.TrenoBuilderAbstract;
 import com.idm.config.Beans;
+import com.idm.dao.AbstractVagoneDao;
+import com.idm.dao.LocomotivaDao;
+import com.idm.dao.TrenoDao;
+import com.idm.dao.VagoneCargoDao;
+import com.idm.dao.VagonePasseggeriDao;
+import com.idm.dao.VagoneRistoranteDao;
 import com.idm.interfaces.Vagone;
 import com.idm.service.TrenoService;
 
@@ -24,28 +30,43 @@ public class FrecciaRossaBuilder extends TrenoBuilderAbstract {
 
 	    @Autowired
 	    private VagoneCargo vagoneCargo;
+	    
+	  //  @Autowired
+	    private AbstractVagoneDao abstractVagoneDao;
+	    
+	   
 
 	    @Override
 	    protected AbstractVagone getCostruisciVagoneCargo() {
-	    	System.out.println(vagoneCargo);
+	    	
+	    	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+	        abstractVagoneDao = context.getBean(AbstractVagoneDao.class);
+	        
+	    	abstractVagoneDao.add(vagoneRistorante);
 	        return vagoneCargo;
 	    }
 
 	    @Override
 	    protected AbstractVagone getCostruisciLocomotiva() {
-	    	System.out.println(locomotiva);
+	    	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+	        abstractVagoneDao = context.getBean(AbstractVagoneDao.class);
+	    	abstractVagoneDao.add(locomotiva);
 	        return locomotiva;
 	    }
 
 	    @Override
 	    protected AbstractVagone getCostruisciVagoneRistorante() {
-	    	System.out.println(vagoneRistorante);
+	    	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+	        abstractVagoneDao = context.getBean(AbstractVagoneDao.class);
+	    	abstractVagoneDao.add(vagoneRistorante);
 	        return vagoneRistorante;
 	    }
 
 	    @Override
 	    protected AbstractVagone getCostruisciVagonePasseggieri() {
-	    	System.out.println(vagonePasseggeri);
+	    	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+	        abstractVagoneDao = context.getBean(AbstractVagoneDao.class);
+	    	abstractVagoneDao.add(vagonePasseggeri);
 	        return vagonePasseggeri;
 	    }
 
