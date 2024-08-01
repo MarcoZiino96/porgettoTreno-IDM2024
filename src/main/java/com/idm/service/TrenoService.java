@@ -55,7 +55,7 @@ public class TrenoService {
         double pesoTreno = treno.getVagoni().stream()
                 .mapToDouble(AbstractVagone::getLunghezza) 
                 .sum();
-       System.out.println(treno.getVagoni());
+        treno.setSigla(string);
         treno.setPrezzo(prezzoTreno);
         treno.setLunghezza(lunghezzaTreno);
         treno.setPeso(pesoTreno);

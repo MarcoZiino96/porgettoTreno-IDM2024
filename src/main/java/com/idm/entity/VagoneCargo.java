@@ -44,8 +44,9 @@ public class VagoneCargo extends AbstractVagone{
 	@Override
 	public String toString() {
 		return 
-				super.toString() +
-				"VagoneCargo [capacitaMassima=" + capacitaMassima + "]";
+				 
+				"VagoneCargo [capacitaMassima=" + capacitaMassima 
+				+ super.toString() + "]";
 	}
 
 

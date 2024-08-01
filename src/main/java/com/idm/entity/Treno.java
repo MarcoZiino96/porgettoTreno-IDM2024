@@ -24,10 +24,9 @@ public class Treno implements Bean {
 	private double prezzo;
 	private double peso;
 	private double lunghezza;
-
 	private String sigla;
-
 	private String foto;
+	private String compagnia;
 
 	@OneToMany(mappedBy = "treno")
 	List<AbstractVagone> vagoni;

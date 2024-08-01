@@ -94,7 +94,7 @@ public abstract class AbstractVagone implements Vagone{
 
 	@Override
 	public String toString() {
-		return "AbstractVagone [id=" + id + ", lunghezza=" + lunghezza + ", peso=" + peso + ", prezzo=" + prezzo
+		return " id=" + id + ", lunghezza=" + lunghezza + ", peso=" + peso + ", prezzo=" + prezzo +" "
 				;
 	}
 	

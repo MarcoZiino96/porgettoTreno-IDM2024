@@ -34,8 +34,9 @@ public class VagonePasseggeri extends AbstractVagone {
 
 	@Override
 	public String toString() {
-		return   super.toString() +
-				"VagonePasseggeri  [numeroPosti=" + numeroPosti;
+		return    
+			   "VagonePasseggeri  [numeroPosti=" + numeroPosti +
+				super.toString();
 	            
 	}
 

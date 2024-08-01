@@ -40,7 +40,8 @@ public class Locomotiva extends AbstractVagone {
 	@Override
 	public String toString() {
 		return 
-				super.toString() +"Locomotiva [potenza=" + potenza + "]"   ;
+				"Locomotiva [potenza=" + potenza + super.toString() +
+				"]"   ;
 	}
 	
 }
