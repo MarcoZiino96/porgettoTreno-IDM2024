@@ -30,7 +30,7 @@ public class TestService {
 
 
 		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		UtenteDao dao = factory.getBean("UtenteDao", UtenteDao.class);
+		UtenteDao dao = factory.getBean(UtenteDao.class);
 
 		Utente utente = new Utente();
 		utente.setCognome(cognome);
@@ -48,7 +48,7 @@ public class TestService {
 
 	public static Utente findUtente(int id) {
 		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		UtenteDao dao = factory.getBean("UtenteDao", UtenteDao.class); 
+		UtenteDao dao = factory.getBean(UtenteDao.class); 
 		Utente u = dao.find(id);
 		System.out.println("Trovato Utente: " + u);
 		return u;
@@ -56,7 +56,7 @@ public class TestService {
 
 	public static Utente updateUtente(Utente vp, int id) {
 		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		UtenteDao dao = factory.getBean("UtenteDao", UtenteDao.class);
+		UtenteDao dao = factory.getBean(UtenteDao.class);
 		Utente utente = findUtente(id);
 		utente.setCognome(utente.getCognome());
 		utente.setDataNascita(utente.getDataNascita());
@@ -72,7 +72,7 @@ public class TestService {
 	
 	public static void testFindUtenti() {
 		BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
-		UtenteDao dao = factory.getBean("UtenteDao", UtenteDao.class); 	
+		UtenteDao dao = factory.getBean(UtenteDao.class); 	
 		List<Utente> u = dao.retrive();
 		System.out.println("Utenti trovati: " + u);
 	}
