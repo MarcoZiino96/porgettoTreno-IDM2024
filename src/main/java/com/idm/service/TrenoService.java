@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.idm.config.Beans;
 import com.idm.dao.TrenoDao;
 import com.idm.entity.Treno;
+import com.idm.entity.TrenoFilter;
 import com.idm.entity.Utente;
 
 
@@ -20,6 +21,9 @@ public class TrenoService {
 
 	@Autowired
 	private TrenoDao trenoDao;
+	
+    @Autowired     //ctrl
+    private TrenoFilterService trenoFilterService;
 	
     
 	public Treno find(Integer id) {
@@ -58,7 +62,7 @@ public class TrenoService {
 		treno1.setLunghezza(treno.getLunghezza());
 		treno1.setPeso(treno.getPeso());
 		treno1.setPrezzo(treno.getPrezzo());
-		trenoDao.update(treno);
+		trenoDao.update(treno1);
 		return treno1;
 	}
 
@@ -89,5 +93,14 @@ public class TrenoService {
         System.out.println(u);
 		return u;
     }
-
+	
+    public List<Treno> findByFilter(TrenoFilter filter) {
+        return trenoFilterService.filterTreni(filter);
+    }
+	
+//    public List<Treno> findByFilter(TrenoFilter filter) {
+//        List<Treno> allTreni = trenoDao.retrive();
+//        return trenoFilterService.filterTreni(allTreni, filter);
+//    }
+	
 }
