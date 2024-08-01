@@ -17,11 +17,12 @@ public class Prenotazione implements Bean {
 	@Column(name = "data_attivazione")
 	private LocalDate dataAttivazione;
 
-	@Column(name = "data_scadenza")
-	private LocalDate dataScadenza;
 
 	@Column(name="coordinate_posto")
 	private String coordinatePosto;	
+	
+	@Column(name="data_partenza")
+	private LocalDate dataPartenza;
 
 	@ManyToOne
 	@JoinColumn(name = "utente_fk")
@@ -50,13 +51,6 @@ public class Prenotazione implements Bean {
 		this.dataAttivazione = dataAttivazione;
 	}
 
-	public LocalDate getDataScadenza() {
-		return dataScadenza;
-	}
-
-	public void setDataScadenza(LocalDate dataScadenza) {
-		this.dataScadenza = dataScadenza;
-	}
 
 	public Utente getUtente() {
 		return utente;
@@ -81,12 +75,18 @@ public class Prenotazione implements Bean {
 	public void setCoordinatePosto(String coordinatePosto) {
 		this.coordinatePosto = coordinatePosto;
 	}
+	
+	public LocalDate getDataPartenza() {
+		return dataPartenza;
+	}
+
+	public void setDataPartenza(LocalDate dataPartenza) {
+		this.dataPartenza = dataPartenza;
+	}
 
 	@Override
 	public String toString() {
-		return "Prenotazione [id=" + id + ", dataAttivazione=" + dataAttivazione + ", dataScadenza=" + dataScadenza
-				+ ", coordinatePosto=" + coordinatePosto + ", utente=" + utente + ", treno=" + treno + "]";
+		return "Prenotazione [id=" + id + ", dataAttivazione=" + dataAttivazione + ", coordinatePosto="
+				+ coordinatePosto + ", dataPartenza=" + dataPartenza + ", utente=" + utente + ", treno=" + treno + "]";
 	}
-
-
 }
