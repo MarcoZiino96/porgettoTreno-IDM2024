@@ -13,25 +13,24 @@ public class Prenotazione implements Bean {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@Column(name = "data_attivazione")
 	private LocalDate dataAttivazione;
-	
+
 	@Column(name = "data_scadenza")
 	private LocalDate dataScadenza;
-	
+
+	@Column(name="coordinate_posto")
+	private String coordinatePosto;	
+
 	@ManyToOne
 	@JoinColumn(name = "utente_fk")
 	private Utente utente;
-	
-	@ManyToMany
-	@JoinTable(
-		name = "prenotazioni_treno",
-		joinColumns = @JoinColumn(name = "prenotazione_fk"),
-		inverseJoinColumns = @JoinColumn(name = "treno_fk")
-			)
-	private List<Treno> treno;
-	
+
+	@ManyToOne
+	@JoinColumn(name="treno_fk")
+	private Treno treno;
+
 	public Prenotazione() {
 	}
 
@@ -67,12 +66,27 @@ public class Prenotazione implements Bean {
 		this.utente = utente;
 	}
 
-	public List<Treno> getTreno() {
+	public Treno getTreno() {
 		return treno;
 	}
 
-	public void setTreno(List<Treno> treno) {
+	public void setTreno(Treno treno) {
 		this.treno = treno;
 	}
+
+	public String getCoordinatePosto() {
+		return coordinatePosto;
+	}
+
+	public void setCoordinatePosto(String coordinatePosto) {
+		this.coordinatePosto = coordinatePosto;
+	}
+
+	@Override
+	public String toString() {
+		return "Prenotazione [id=" + id + ", dataAttivazione=" + dataAttivazione + ", dataScadenza=" + dataScadenza
+				+ ", coordinatePosto=" + coordinatePosto + ", utente=" + utente + ", treno=" + treno + "]";
+	}
+
 
 }
