@@ -9,6 +9,9 @@ import com.idm.config.Beans;
 import com.idm.dao.TrenoDao;
 import com.idm.entity.FrecciaRossaBuilder;
 import com.idm.entity.Treno;
+import com.idm.entity.TrenoFilter;
+import com.idm.entity.Utente;
+
 
 
 @Component
@@ -16,9 +19,12 @@ public class TrenoService {
 
 	@Autowired
 	private TrenoDao trenoDao;
-	
+
 	@Autowired
 	private FrecciaRossaBuilder frecciaRossaBuilder;
+    @Autowired     
+    private TrenoFilterService trenoFilterService;
+
 	
     
 	public Treno find(Integer id) {
@@ -29,6 +35,7 @@ public class TrenoService {
 		System.out.println(trenoFind);
 		return trenoFind;
 	}
+
 
 	
 	public Treno createTreno(String string) {
@@ -63,9 +70,27 @@ public class TrenoService {
        return treno;
 	}
 
+	
+
+	public Treno createTreno(Treno treno) {
+//		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+//        trenoDao = context.getBean(TrenoDao.class);
+		Treno treno1 = new Treno();
+		treno1.setSigla(treno.getSigla());
+		treno1.setUtente(treno.getUtente());
+		treno1.setFoto(treno.getFoto());
+		treno1.setLunghezza(treno.getLunghezza());
+		treno1.setPeso(treno.getPeso());
+		treno1.setPrezzo(treno.getPrezzo());
+		treno1 = trenoDao.create(treno1);
+		
+		return treno1;
+	}
+
 	public Treno update(Treno treno,int id) {
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
-        trenoDao = context.getBean(TrenoDao.class);
+//		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+//        trenoDao = context.getBean(TrenoDao.class);
+		
 		Treno treno1 = find(id);
 		treno1.setSigla(treno.getSigla());
 		treno1.setUtente(treno.getUtente());
@@ -90,10 +115,23 @@ public class TrenoService {
 	}
 
 	public List<Treno> retrive() {
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
-        trenoDao = context.getBean(TrenoDao.class);
+//		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
+//        trenoDao = context.getBean(TrenoDao.class);
 		List<Treno> u = trenoDao.retrive();
 		System.out.println(u);
 		return u;
 	}
+
+	public List<Treno> retriveWithOrder(String ordine, String direction) {
+//        BeanFactory factory = new AnnotationConfigApplicationContext(Beans.class);
+//        TrenoDao dao = factory.getBean("TrenoDao", TrenoDao.class);
+        List<Treno> u = trenoDao.retriveWithOrder(ordine, direction);
+        System.out.println(u);
+		return u;
+    }
+	
+    public List<Treno> findByFilter(TrenoFilter filter) {
+        return trenoFilterService.filterTreni(filter);
+    }
+	
 }

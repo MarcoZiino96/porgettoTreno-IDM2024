@@ -20,11 +20,11 @@ public class TestVagoneRistorante {
 		VagoneRistoranteDao dao = factory.getBean("VagoneRistoranteDao",VagoneRistoranteDao.class);
 		
 		
-		VagoneRistorante vagoneRistorante = new VagoneRistorante();
-		updateVagoneRistorante(vagoneRistorante,1);
+//		VagoneRistorante vagoneRistorante = new VagoneRistorante();
+//		updateVagoneRistorante(vagoneRistorante,1);
 		
-//		addVagoneRistorante(4000,7, 2.6, 6);
-//		addVagoneRistorante(3000,4, 2.2, 5);
+		addVagoneRistorante(4000,7, 2.6, 6);
+		addVagoneRistorante(3000,4, 2.2, 5);
 
 //		dao.delete(4);
 //		dao.delete(5);

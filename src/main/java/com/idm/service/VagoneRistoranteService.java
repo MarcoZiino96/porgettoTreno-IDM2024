@@ -10,7 +10,7 @@ import com.idm.entity.VagoneRistorante;
 public class VagoneRistoranteService {
 	
 	@Autowired
-	VagoneRistoranteDao vagoneRistoranteDao;
+	private VagoneRistoranteDao vagoneRistoranteDao;
 	
 	public VagoneRistorante create(VagoneRistorante vagoneRistorante) {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);

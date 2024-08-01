@@ -19,7 +19,7 @@ public class TestVagoneCargo {
 		VagoneCargoDao dao = factory.getBean("VagoneCargoDao",VagoneCargoDao.class);
 		
 		
-		addVagoneCargo(3000,6, 1.5, 6000);
+//		addVagoneCargo(3005,4, 1.7, 7000);
 //		addVagoneCargo(2000,4, 1.3, 7000);
 //		VagoneCargo vcDaModificare = findVagoneCargo(1);
 //		vcDaModificare.setLunghezza(1800); 

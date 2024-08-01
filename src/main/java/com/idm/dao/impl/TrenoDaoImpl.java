@@ -53,6 +53,14 @@ public class TrenoDaoImpl extends DaoImpl implements TrenoDao {
 		List<Treno> l = q.getResultList();
 		return l;
 	}
+	
+    @Override
+    public List<Treno> retriveWithOrder(String ordine, String direction) {
+        String jpql = "SELECT t FROM Treno t ORDER BY t." + ordine + " " + direction;
+        Query query = manager.createQuery(jpql, Treno.class);
+        return query.getResultList();
+    }
+	
 
 	@Transactional
 	@Override

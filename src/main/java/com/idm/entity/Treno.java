@@ -21,9 +21,9 @@ public class Treno implements Bean {
 	@ManyToOne
 	@JoinColumn(name = "utente_fk")
 	private Utente utente;
-	private double prezzo;
-	private double peso;
-	private double lunghezza;
+	private Double prezzo;
+	private Double peso;
+	private Double lunghezza;
 	private String sigla;
 	private String foto;
 	private String compagnia;
@@ -48,15 +48,16 @@ public class Treno implements Bean {
 
 	public Treno() {
 	}
+	 public Treno(Double prezzo, Double peso, Double lunghezza, String sigla, String foto) {
+			this.prezzo = prezzo;
+			this.peso = peso;
+			this.lunghezza = lunghezza;
+			this.sigla = sigla;
+			this.foto = foto;
+		}
+	
 
 
-	public Treno( int prezzo, Double peso, Double lunghezza, String sigla, String foto) {
-		this.prezzo = prezzo;
-		this.peso = peso;
-		this.lunghezza = lunghezza;
-		this.sigla = sigla;
-		this.foto = foto;
-	}
 
 	public int getId() {
 		return id;
@@ -92,14 +93,44 @@ public class Treno implements Bean {
 		this.lunghezza = lunghezza;
 	}
 
+//	public Treno(Utente utente, int prezzo, Double peso, Double lunghezza, String sigla, String foto,
+//			List<AbstractVagone> vagoni) {
+//		this.utente = utente;
+//		this.prezzo = prezzo;
+//		this.peso = peso;
+//		this.lunghezza = lunghezza;
+//		this.sigla = sigla;
+//		this.foto = foto;
+//		this.vagoni = vagoni;
+//	}
+
+
+
+
+public void setPeso(Double peso) {
+	this.peso = peso;
+}
+
+
+public void setLunghezza(Double lunghezza) {
+	this.lunghezza = lunghezza;
+}
+
+
+public void getId(int id) {
+	this.id = id;
+}
 
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 
 	public Utente getUtente() {
 		return utente;
 	}
+	
+	
 	public void setUtente(Utente utente) {
 		this.utente = utente;
 	}
@@ -121,7 +152,7 @@ public class Treno implements Bean {
 	@Override
 	public String toString() {
 		return "Treno [utente=" + utente + ", prezzo=" + prezzo + ", peso=" + peso + ", lunghezza=" + lunghezza
-				+ ", sigla=" + sigla + ", getId()=" + getId() + ", getUtente()=" + getUtente() + ", getSigla()="
+				+ ", sigla=" + sigla +  ", getUtente()=" + getUtente() + ", getSigla()="
 				+ getSigla() + ", getFoto()=" + getFoto() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
 				+ ", toString()=" + super.toString() + "]";
 	}

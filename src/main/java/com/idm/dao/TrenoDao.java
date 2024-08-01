@@ -17,6 +17,7 @@ public interface TrenoDao {
 	public void delete(int id);
 	public List<Treno> retrive();
 	public List<Treno> findByFilter(TrenoFilter filter);
+	List<Treno> retriveWithOrder(String ordine, String direction);
 	
 	//public List<Treno> retriveBySigla(String sigla);
 }
