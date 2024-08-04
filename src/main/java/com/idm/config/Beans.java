@@ -13,17 +13,6 @@ import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import com.idm.dao.PrenotazioneDao;
-import com.idm.dao.VagonePasseggeriDao;
-import com.idm.dao.VotoDao;
-import com.idm.dao.impl.PrenotazioneDaoImpl;
-import com.idm.dao.LocomotivaDao;
-import com.idm.dao.TrenoDao;
-import com.idm.dao.UtenteDao;
-import com.idm.dao.impl.LocomotivaDaoImpl;
-import com.idm.dao.impl.TrenoDaoImpl;
-import com.idm.dao.impl.UtenteDaoImpl;
-import com.idm.dao.impl.VotoDaoImpl;
 import com.idm.entity.Locomotiva;
 import com.idm.entity.VagoneCargo;
 import com.idm.entity.VagonePasseggeri;
@@ -34,11 +23,7 @@ import com.idm.entity.VagoneRistorante;
 //import entity.CargoConcreto;
 //import entity.LocomotivaConcreta;
 
-import com.idm.dao.VagoneCargoDao;
-import com.idm.dao.VagoneRistoranteDao;
-import com.idm.dao.impl.VagoneCargoDaoImpl;
-import com.idm.dao.impl.VagonePasseggeriDaoImpl;
-import com.idm.dao.impl.VagoneRistoranteDaoImpl;
+
 
 
 @Configuration
@@ -101,7 +86,7 @@ public class Beans {
 
 
     @Bean
-    @Scope("prototype") 
+  
     public Locomotiva locomotiva() {
         String potenza = "potenzaAlta"; // Valore di default
         double prezzo = 70000.0;        // Valore di default
@@ -111,7 +96,7 @@ public class Beans {
     }
 
     @Bean
-    @Scope("prototype") 
+
     public VagonePasseggeri vagonePasseggeri() {
         double peso = 1000.0;           // Valore di default
         double prezzo = 40000.0;        // Valore di default
@@ -121,7 +106,7 @@ public class Beans {
     }
 
     @Bean
-    @Scope("prototype") 
+
     public VagoneRistorante vagoneRistorante() {
         double peso = 1200.0;           // Valore di default
         double prezzo = 60000.0;        // Valore di default
@@ -131,7 +116,7 @@ public class Beans {
     }
 
     @Bean
-    @Scope("prototype") 
+
     public VagoneCargo vagoneCargo() {
         double peso = 1500.0;           // Valore di default
         double prezzo = 70000.0;        // Valore di default

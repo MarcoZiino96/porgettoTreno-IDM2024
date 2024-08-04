@@ -46,7 +46,7 @@ public class TrenoService {
         frecciaRossaBuilder = context.getBean(FrecciaRossaBuilder.class);
         
         Treno treno = frecciaRossaBuilder.creaTreno(string);
-    
+        
         if(treno.getVagoni().isEmpty()) {
         	throw new RuntimeException("La lista è vuota");
         }
@@ -62,10 +62,14 @@ public class TrenoService {
         double pesoTreno = treno.getVagoni().stream()
                 .mapToDouble(AbstractVagone::getLunghezza) 
                 .sum();
+        
         treno.setSigla(string);
         treno.setPrezzo(prezzoTreno);
         treno.setLunghezza(lunghezzaTreno);
         treno.setPeso(pesoTreno);
+        
+      
+        
         trenoDao.create(treno);
        return treno;
 	}

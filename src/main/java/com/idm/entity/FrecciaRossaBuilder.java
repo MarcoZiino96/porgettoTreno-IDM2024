@@ -41,7 +41,6 @@ public class FrecciaRossaBuilder extends TrenoBuilderAbstract {
 	    	
 	    	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
 	        abstractVagoneDao = context.getBean(AbstractVagoneDao.class);
-	        
 	    	abstractVagoneDao.add(vagoneRistorante);
 	        return vagoneCargo;
 	    }

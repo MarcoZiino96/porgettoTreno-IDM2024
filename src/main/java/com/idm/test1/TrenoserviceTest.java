@@ -1,10 +1,17 @@
 package com.idm.test1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.idm.abstractClasses.AbstractVagone;
 import com.idm.config.Beans;
 import com.idm.dao.AbstractVagoneDao;
 import com.idm.entity.Treno;
+import com.idm.entity.VagonePasseggeri;
+import com.idm.service.AbstractVagoneService;
 import com.idm.service.TrenoService;
 
 
@@ -13,28 +20,20 @@ public class TrenoserviceTest {
 	//@Autowired
 	private static TrenoService  trenoService;
 	
+	private static AbstractVagoneService  abstractVagoneService;
+	
 
 	
 	public static void main(String[] args) {
 		
 	  AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Beans.class);
-      TrenoService  trenoService = context.getBean(TrenoService.class);
-		
-//      Treno treno = trenoService.find(1);
-//      
-//      System.out.println(treno.getVagoni());
+        trenoService = context.getBean(TrenoService.class);	
+   //   Treno treno = trenoService.find(1);
+      trenoService.createTreno("hpppp");
+ //     System.out.println(treno.getVagoni());
       
-       
-       trenoService.createTreno("hppr");
-	}
-	
-	public static void creaTreno(String string) {
-		trenoService.createTreno(string);
-	}
-	
-	public static void findTreno(int id) {
-		trenoService.find(id);
-	}
+    
+      
 	
 	
 	
@@ -159,6 +158,11 @@ public class TrenoserviceTest {
 //		System.out.println("Locomotiva dopo eliminazione: " + deletedLocomotiva);
 //	}
 //
+
+
+}
+
+
 
 
 }

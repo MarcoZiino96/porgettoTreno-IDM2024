@@ -19,15 +19,14 @@ import com.idm.service.TrenoService;
 
 
 public abstract class TrenoBuilderAbstract {
-	
-	 @Autowired
-	 private AbstractVagoneDao abstractVagoneDao;
 	 
 	public Treno creaTreno(String input){
 		
 		Treno treno = new Treno();
 
 	List<AbstractVagone> vagoni  = new ArrayList<>() ;
+	
+	System.out.println(vagoni);
 
 		String strgMaiuscola = input.toUpperCase();
 		
@@ -47,7 +46,10 @@ public abstract class TrenoBuilderAbstract {
 	            vagone.setTreno(treno); 
 	        }
 			
+			System.out.println(vagoni);
+			
 			treno.setVagoni(vagoni);
+			System.out.println(vagoni);
 
 		}catch(StringaException e){
 			System.out.println("Errore: "+ e.getSigla() + " Questa sigla non va bene " +e.getMessage());
@@ -71,11 +73,6 @@ public abstract class TrenoBuilderAbstract {
 			System.out.println("Suggerimento: " + e.getSuggerimento());
 		}
 		
-		
-		
-		
-		
-
 		return treno ;
 	}
 
@@ -122,10 +119,7 @@ public abstract class TrenoBuilderAbstract {
 				if (tipo != 'C') {
 					throw new CargoException("Se è presente un Cargo ('C'), tutti i vagoni devono essere Cargo.", composizione);
 				}
-				
-			//	abstractVagoneDao.add(getCostruisciVagoneCargo());
 				vagoni.add(getCostruisciVagoneCargo());
-
 			}
 			return vagoni;
 		}
@@ -134,13 +128,13 @@ public abstract class TrenoBuilderAbstract {
 
 			switch (tipo) {
 			case 'P':
-			//	abstractVagoneDao.add(getCostruisciVagonePasseggieri());
+			
 				vagoni.add(getCostruisciVagonePasseggieri());
 				break;
 			case 'R':
 				if(ristoranteCount >= 1)
 				throw new RistoranteException("Ci può essere solo un ristorante", composizione);
-			//	abstractVagoneDao.add(getCostruisciVagoneRistorante());
+			
 				vagoni.add(getCostruisciVagoneRistorante());
 				ristoranteCount++;
 				break;

@@ -1,4 +1,5 @@
 package com.idm.entity;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 
@@ -17,7 +18,6 @@ public class Treno implements Bean {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
 	@ManyToOne
 	@JoinColumn(name = "utente_fk")
 	private Utente utente;
@@ -28,7 +28,7 @@ public class Treno implements Bean {
 	private String foto;
 	private String compagnia;
 	@OneToMany(mappedBy = "treno", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	List<AbstractVagone> vagoni;
+	List<AbstractVagone> vagoni = new ArrayList<>();
 
 
 

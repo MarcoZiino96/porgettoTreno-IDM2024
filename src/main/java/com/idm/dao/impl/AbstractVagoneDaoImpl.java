@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.idm.abstractClasses.AbstractVagone;
 import com.idm.dao.AbstractVagoneDao;
 
+
 @Component
 public class AbstractVagoneDaoImpl extends DaoImpl implements AbstractVagoneDao {
 
